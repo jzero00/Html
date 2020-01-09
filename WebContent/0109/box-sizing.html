@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="../css/myStyle.css">
+    <style>
+    
+    div{
+    box-sizing: border-size;
+    width: calc(90%-1%);
+    height: 287px;
+    float: left;
+    overflow: auto;
+    }
+    </style>
+</head>
+<body>
+    <pre>
+        BOX-SIZING : border-box:
+        border테두리와 padding부분까지 합해서 사이즈를 산출
+        width : calc(50%-1%)
+        width : calc(200px - 2px)
+        width : calc(80% - 2px)
+        width : calc(100px - 1px)
+        width : 50%
+
+        BOX-SIZING : content-box:
+            border테두리와 padding부분은 제외하고 내용만으로 사이즈를 산출
+
+    </pre>
+    <div style="border: 3px solid red;">
+        <h2>사자</h2>
+        <p>사자는 아프리카에 살며 강한 다리와 턱<span style="color: red;">긴 송곳니</span>를 지니고 있다.</p>
+    </div>
+</body>
