@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+</head>
+<style>
+#btn3,img {
+	display: none;
+}
+</style>
+
+<body>
+	<button onclick="hide()" id="btn1" type="button">감추기</button>
+	<button onclick="show()" id="btn2" type="button">보이기</button>
+	<img id="btn3" src="../images/Coca-Cola-logo.png">
+	
+	<script>
+    //이미지와 확인 버튼을 보이게 설정
+    //html 요소에 접근
+    window.onload = function(){
+    b3 = document.getElementById('btn3');
+    vimg = document.getElementsByTagName('img')[0];	
+    }
+function show(){
+
+    
+    //각요소의 style지정
+    b3.style.display = 'block';
+    vimg.style.display = 'block';
+}
+function hide(){
+
+    
+    //각요소의 style지정
+    b3.style.display = 'none';
+    vimg.style.display = 'none';
+}
+</script>
+</body>
+</html>

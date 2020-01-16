@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    form{
+        width: 50%;
+        border: 10px outset blue;
+        padding: 10px;
+        /*margin-top: 50px;
+        margin-left: 20%;*/
+
+        margin: auto auto;
+    }
+</style>
+</head>
+<body>
+    <form action="form_type.jsp" method="POST">
+        아이디 : <input type="text" value="aaa" name="id" size="10"><br>
+        비밀번호 : <input type="password" name="pass"><br>
+        <input type="hidden" value="korea" name="name"><br>
+
+        성별 : <input type="radio" checked value="m" name="gender">남자
+                <input type="radio" value="f" name="gender">여자<br>
+        관심분야 : <input type="checkbox" checked name="like" value="java">Java
+                    <input type="checkbox" checked name="like" value="jsp">JSP
+                    <input type="checkbox" name="like"  value="db">DB
+                    <input type="checkbox" name="like"  value="html">HTML
+                    <input type="checkbox" name="like"  value="css">CSS
+                    <input type="checkbox" name="like"  value="javascript">JavaScript
+        <br>
+        첨부파일
+        <input type="file" name="file"><br>
+        <br>
+        <input type="submit" value="전송">
+        <input type="reset" value="취소">
+        <input type="image" src="../images/check.png">
+    </form>
+</body>
+</html>
