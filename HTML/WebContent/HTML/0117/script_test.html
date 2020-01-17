@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="..//css/myStyle.css">
+<!-- 외부 스크립트 -->
+<script src="../js/myscript.js"></script>
+
+
+<script>
+	/* 내부 스크립트*/
+	function proc1() {
+		//textarea에 접근해서 style변경
+		area = document.getElementsByTagName('textarea')[0];
+		
+		//proc호출할때마다 배경색을 변경한다. - 랜덤을 이용한다.
+		r = parseInt(Math.random()*255)
+		g = parseInt(Math.random()*255)
+		b = parseInt(Math.random()*255)
+
+		r16 = r.toString(16);
+		g16 = g.toString(16);
+		b16 = b.toString(16);
+
+		area.style.background = 'rgb(' + r + ',' + g + ',' + b + ')';
+		/*area.style.background = '#' + r16 + g16 + b16;*/
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="proc1()">내부 스크립트</button>
+	<button type="button" onclick="proc2()">외부 스크립트</button>
+	<button type="button" onclick="alert('Hello~~~!')">인라인 스크립트</button>
+	<br>
+	<textarea rows="10" cols="50"></textarea>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <link rel="stylesheet" href="..//css/myStyle.css">
+        <script>
+        function input(){
+            aa == prompt("문자를 입력하세요~", "홍길동");
+
+            //aa를 id가 result인 div에 출력한다.
+            document.getElementById('result').innerHTML == aa;
+            
+        }
+        </script>
+</head>
+<body>
+    <pre>
+        버튼 클릭시 문자를 입력하여 div에 출력
+    </pre>
+    <button onclick="input()" type="button">입력</button>
+    <br>
+    <div id="result"></div>
+</body>
+</html>

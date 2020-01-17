@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+
+    *{  
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+
+    header{
+        text-align: center;
+        background: rgb(255, 255, 129);
+	    width: 92%;
+	    height: 80px;
+	    clear: both;
+    }
+
+    nav{
+        background: paleturquoise;
+        width: calc(20% - 2%);
+        float: left;
+        height: 500px;
+    }
+
+    section{
+        background: dodgerblue;
+        width: calc(74.9% - 10px);
+        float: left;
+        height: 500px;
+    }
+    footer{
+        text-align: center;
+        clear: both;
+        background: pink;
+        height: 80px;
+        width: 92%;
+    }
+    #img{
+        float: left;
+        display: block;
+    }
+    h3{
+        text-align: left;
+        margin: 20px;
+    }
+    h1{ 
+        border: 15px;
+    	text-align: center;
+        font-size: larger;
+    }
+    pre{
+        text-align: auto;
+    }
+</style>
+</head>
+<body>
+    <header><h1>My Blog Page</h1></header>
+    <nav>
+        <h4>Links</h4>
+        <ul>
+            <li><a href="https://www.w3schools.com/">W3C</a></li>
+            <li><a href="https://www.naver.com/">네이버</a></li>
+            <li><a href="https://www.youtube.com/">유튜브</a></li>
+        </ul>
+        <br><br>
+
+        <div>
+            <figure>
+                <img id="img" src="../images/gin.jpg">
+                <figcaption>Gin</figcaption>
+            </figure>
+        </div>
+    </nav>
+    <section>
+        <h3>
+            시멘틱 요소
+        </h3>
+        <pre>
+시멘틱 요소 test1
+        </pre>
+        <br><br><br>
+
+        <article>
+            <h3>
+                div와 span
+            </h3>
+            <span>
+    div은 "divide"의 약자로서 페이지를 논리적인 섹션으로 분리하는데 사용되는 태그이다. sqan요소는 인라인 요소로서 텍스트를 위한 컨테이너로 사용할 수 있다.
+    ㅅㄷㄴㄷㅅㄴㄷㅅㄴㄷㅅㄴㄷㅅ
+            </span>
+        </section>
+        </article>
+
+    <footer>
+        Coptright (c) 2020 Gin
+    </footer>
+</body>
+</html>
