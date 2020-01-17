@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script>
+        function calc(){
+            //id가 price인 요소에 접근, 값을 가져오기
+            a = document.getElementById('price');
+            x = a.value;
+            
+            //id가 su인 요소에 접근, 값을 가져온다.
+            b = document.getElementById('su');
+            y = b.value;
+            //계산
+            res = x * y;
+            //출력
+            output = "가격 : " + x + "\n" + "수량 : " + y + "\n" + "금액 : " + res;
+            alert(output);
+        }
+    </script>
+<style>
+form {
+	width: 50%;
+	border: 10px outset blue;
+	padding: 10px;
+	/*margin-top: 50px;
+        margin-left: 20%;*/
+	margin: auto auto;
+}
+</style>
+</head>
+<body>
+	<form>
+		가격 : <input type="text" id="price"><br> 수량 : <input
+			type="number" id="su"><br> <input type="button"
+			value="확인" onclick="calc()">
+	</form>
+	<br>
+	<hr>
+	<button onclick="alert('Hello')">클릭</button>
+	<br>
+	<hr>
+	<form action="textarea.jsp" method="POST">
+		이름 : <input type="text" name="name"><br> 고객의 소리 안들려....<br>
+		<textarea cols="50" rows="10" name="area"></textarea>
+		<br>
+		<button>전송</button>
+	</form>
+</body>
+</html>
