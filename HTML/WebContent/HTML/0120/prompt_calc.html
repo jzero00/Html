@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="..//css/myStyle.css">
+<style type="text/css">
+div{
+	color: dodgerblue;
+	font-size: 40px;
+}
+</style>
+<script type="text/javascript">
+
+	function proc() {
+		//두개의 수와 연산자를 입력
+		e = document.getElementsByTagName('button');
+
+		input1 = parseInt(prompt("정수를 입력하세요"));
+		input2 = parseInt(prompt("정수를 입력하세요"));
+		input3 = prompt("연산자를 입력해주세요");
+/*
+		if (input3 == '+') {
+			res = parseInt(input1) + parseInt(input2);
+
+		} else if (input3 == '-') {
+			res = input1 - input2;
+
+		} else if (input3 == '*') {
+			res = input1 * input2;
+
+		} else if (input3 == '/') {
+			res = input1 / input2;
+
+		}
+*/
+		switch (input3) {
+		case '+': 
+			res = parseInt(input1) + parseInt(input2);
+			break;
+			
+		case '-': 
+			res = input1 - input2;
+			break;
+			
+		case '*': 
+			res = input1 * input2;
+			break;
+			
+		case '/': 
+			res = input1 / input2;
+			break;
+
+		default:
+			break;
+		}
+		document.getElementsByTagName("div")[0].innerHTML = input1 + " " + input3 + " " + input2 + " = " + res;
+	}
+</script>
+</head>
+<body>
+	<pre>
+	버튼을 클릭하면 두개의 수와 연산자를 입력받아
+	연산을 수행한다
+	결과는 div에 출력한다.
+</pre>
+	<br>
+	<button type="button" onclick="proc()">확인</button>
+	<br>
+	<br>
+	<div></div>
+</body>
+</html>
