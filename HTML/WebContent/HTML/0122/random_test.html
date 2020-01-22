@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="..//css/myStyle.css">
+<style>
+	div{
+		width: 200px;
+		height: auto;
+		padding: 10px;
+		border: 1px dotted red;
+		background: yellowgreen;
+	}
+	#d2{
+		height :300px
+	}
+</style>
+<script>
+	function proc1(){
+
+		k=0;
+			str = "";
+		while (k < 10) {
+		//1에서 100사이의 난수 5개를 발생한다.
+		for (i = 0; i < 5; i++) {
+			
+			a = parseInt(Math.random() * 100 + 1);
+			str += a + " ";
+			
+		}
+		str += "<br>"
+		k++;
+		//div에 출력한다
+		document.getElementsByTagName('div')[0].innerHTML += str;
+		}
+	
+	}
+	function proc2(but) {
+		but.style.display = 'none';
+		str = "";
+		x = setInterval(function() {
+			
+			for (i = 0; i < 5; i++) {
+			
+			a = parseInt(Math.random() * 100 + 1);
+			str += a + "\t";
+			
+		}
+		str += "<br>"
+		document.getElementsByTagName('div')[1].innerHTML += str;
+
+		}, 500);
+		console.log(x);
+	}
+
+
+	function proc3() {
+		clearInterval(x);
+		document.getElementById('run').style.display = "inline";
+	}
+</script>
+</head>
+<body>
+	<pre>
+	버튼을 클릭할때 마다 숫자가 5개씩 10줄이 출력된다.
+	</pre>
+	<input type="button" value="실행" onclick="proc1()">
+	<br><br>
+	<div></div>
+	<br><br>
+
+	<pre>
+
+0.5초마다 숫자 5개 10줄이 출력된다
+규칙적인 시간 간격으로 실행 : setInterval()
+	</pre>
+	<input type="button" value="실행" onclick="proc2(this)" id="run">
+	<input type="button" value="멈춤" onclick="proc3()">
+	<br><br>
+	<div id="d2"></div id="d2">
+</body>
+</html>
