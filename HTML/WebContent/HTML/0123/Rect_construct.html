@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+</head>
+<script>
+	str = "";
+	r3 = "";
+    //객체 정의 - 생성자 함수
+    function Rect(width, height) {
+        this.width = width;
+        this.height = height;
+
+        this.getArea = function(){
+            return  this.width * this.height;
+        }
+    }
+
+    //객체 사용
+    function proc1() {
+
+        //Rect객체 생성
+        var r1 = new Rect();
+        r1.width = 10;
+        r1.height = 4;
+        r1.name = "사각형1"
+        print(r1);
+        
+        var r2 = new Rect(5, 7);
+        r2.name = "네모네모네모네모네모네?";
+        print(r2);
+    }
+
+    function print(a) {
+    	
+        str = "";
+        num = 0;
+        str += "이름 = " + a.name + "<br>";
+        str += "가로 = " + a.width + "<br>";
+        str += "세로 = " + a.height + "<br>";
+        str += "면적 = " + a.getArea() + "<br><br>";
+
+        if(a === r3){
+            str += "둘레 " + a.getCircum() + "<br>"
+            num = 1;
+        }
+        document.getElementsByTagName('div')[num].innerHTML += str;
+
+    }
+
+    function proc2() {
+
+        r3 = new Rect(6, 9);
+        //이름추가
+        r3.name = "네모바지";
+        //함수 추가
+        r3.getCircum = function() {
+            return (r3.width + r3.height) * 2
+        }
+        //출력
+        print(r3);
+    }
+</script>
+<body>
+    <pre>
+    <h2>생성자함수를 이용한 객체 생성과 사용</h2>
+    function Rect(width, height) {
+        this.width = width;
+        this.height = height;
+
+        Rect.getArea = function () {
+            return  this.width * this.height;
+        }
+    }
+    r1 = new Rect();
+    객체의 속성 width, height의 값이 정해지지 않으면
+    undefined가 발생.
+    r1객체의 속성에 값을 하나씩 대입한다
+    r1.width = 10;
+    r1.height = 4;
+    
+    r2 = new Rect(5, 7);
+    r1.name = "사각형1";
+    r2.name = "네모네모네모네모네?"
+    
+    객체의 속성에 정해지지 않았어도 동족으로 추가해서 사용할 수 있다.
+</pre>
+    <button type="button" onclick="proc1()">객체 실행</button>
+    <br><br>
+    <div>
+
+    </div>
+    <br><hr><br>
+
+    <pre>
+    Rect객체에 둘레를 구하는 메소드를 추가한다
+    Rect생성후에 동적으로 추가한다
+    
+    r3 = new Rect(6, 9);
+    r3.name = "네모바지";
+    r3.getCircum = function(){
+    return (r3.width + r3.height) * 2
+    }
+    </pre>
+    <button type="button" onclick="proc2()">메소드 추가 실행</button>
+    <br><br>
+    <div></div>
+</body>
+</html>
