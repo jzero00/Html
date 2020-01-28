@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+    function proc1() {
+        //현재 날짜와 태어난 날짜 → Date 객체 생성
+        today = new Date();
+        myday = new Date("1995.07.25");
+
+        time = today.getTime() - myday.getTime();
+        sec = time / 1000;
+        min = sec / 60;
+        hr = min / 60;
+        day = hr / 24;
+        yr = day / 365;
+        res = "new Date() : " + today.toLocaleDateString() + "<br>";
+        res += "new Date('1995.07.25') : " + myday.toLocaleDateString() + "<br>"
+        res += "살아온 초 : " + sec + "<br>";
+        res += "당신은 " + yr + "년 살았습니다.";
+        alert(time);
+
+        document.getElementById("result1").innerHTML = res;
+    }
+
+    function proc2() {
+        today = new Date();
+
+        // time = 현재의 getTime()  + 500일의 getTime()
+        millisec = today.getTime() + 500 * 24 * 60 * 60 * 1000;
+
+        // alert(millisec);
+        // millisec으로 새로운 Date 객체 생성
+        newday = new Date(millisec);
+
+        //출력
+        document.getElementById("result2").innerHTML = newday.toLocaleDateString();
+    }
+
+    function proc3(){
+        today = new Date();
+        //선택한 날짜를 가져온다
+        buyDate = new Date(document.getElementById("selDate").value);
+
+        time = today.getTime() - buyDate.getTime();
+        chkDate = time / 1000 / 60 / 60 / 24;
+        res = "구입 날짜 : " + buyDate.toLocaleDateString() + "<br>";
+        res += "오늘 날짜 : " + today.toLocaleDateString() + "<br>";
+
+        if (chkDate >= 7) {
+            res += "구입한지 7일이 지나 교환/반품이 불가합니다.";
+        } else {
+            res += "구입한지 7일이 아직 지나지 않아 교환/반품이 가능합니다.";
+        }
+
+        document.getElementById("result3").innerHTML = res;
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>살아온 날 구하기</h2>
+        <pre>
+today = new Date();
+myday = new Date("1995.07.25");
+    
+time = today.getTime() - myday.getTime();
+sec = time / 1000;
+min = sec / 60;
+hr = min / 60;
+day = hr / 24;
+yr = day / 365;
+res = "new Date() : " + today.toLocaleDateString() + "<br>";
+res += "new Date('1995.07.25') : " + myday.toLocaleDateString() + "<br>"
+res += "살아온 초 : " + sec + "<br>";
+res += "당신은 " + yr + "년 살았습니다.";
+alert(time);
+    
+document.getElementById("result1").innerHTML = res;
+        </pre>
+        <button type="button" onclick="proc1()">실행</button>
+        <div id="result1"></div>
+    </div>
+
+    <div class="box">
+        <h2>앞으로의 날 구하기</h2>
+        <pre>
+        현재부터 500일 후의 날을 구한다
+today = new Date();
+
+// time = 현재의 getTime()  + 500일의 getTime()
+millisec = today.getTime() + 500 * 24 * 60 * 60 * 1000;
+
+// alert(millisec);
+
+
+// millisec으로 새로운 Date 객체 생성
+newday = new Date(millisec);
+
+//출력
+document.getElementById("result2").innerHTML = newday.toLocaleDateString();
+        </pre>
+        <button type="button" onclick="proc2()">실행</button>
+        <div id="result2"></div>
+    </div>
+
+    <div class="box">
+        <h2>교환 가능 여부 구하기</h2>
+        <pre>
+
+        </pre>
+        구입 날짜<input type="date" id="selDate">
+        <button type="button" onclick="proc3()">실행</button>
+        <div id="result3"></div>
+    </div>
+</body>
+</html>

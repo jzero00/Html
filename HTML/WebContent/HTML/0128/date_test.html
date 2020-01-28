@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+    function proc1() {
+        now1 = new Date();
+        print(now1, 'result1');
+
+        now2 = new Date(1234567812);
+        print(now2, 'result2');
+
+        now3 = new Date("2020. 01. 28");
+        print(now3, 'result3');
+
+        now4 = new Date(2020,01,28,14,45,20);
+        print(now4, 'result4');
+
+        // document.getElementById("result1").innerHTML = now1;
+        // document.getElementById("result2").innerHTML = now2;
+        // document.getElementById("result3").innerHTML = now3;
+        // document.getElementById("result4").innerHTML = now4;
+    }
+
+    function print(now, result) {
+        document.getElementById(result).innerHTML = now + "<br>";
+        datestr = now.toLocaleString();
+        date = now.toLocaleDateString();
+        time = now.toLocaleTimeString();
+        document.getElementById(result).innerHTML += datestr + "<br>";
+        document.getElementById(result).innerHTML += date + "<br>";
+        document.getElementById(result).innerHTML += time + "<br>";
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>Date 객체 생성</h2>
+        <pre>
+    now1 = new Date();
+    now2 = new Date(1234567812);
+    now3 = new Date("2020. 01. 28");
+    now4 = new Date(2020,01,28,14,45,20);            
+        </pre>
+        <button type="button" onclick="proc1()">실행</button>
+        <div id="result1"></div>
+        <div id="result2"></div>
+        <div id="result3"></div>
+        <div id="result4"></div>
+    </div>
+</body>
+</html>

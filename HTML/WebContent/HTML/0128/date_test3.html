@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+    function proc1() {
+        
+        today = new Date();
+        res = today.toLocaleString();
+
+        day = today.getDay();
+        switch (day) {
+            case 0:
+            str = "일요일";
+                break;
+            case 1:
+            str = "월요일";
+                break;
+            case 2:
+            str = "화요일";
+                break;
+            case 3:
+            str = "수요일";
+                break;
+            case 4:
+            str = "목요일";
+                break;
+            case 5:
+            str = "금요일";
+                break;
+            case 6:
+            str = "토요일";
+                break;
+            default:
+                break;
+        }
+        res += "&nbsp;&nbsp;" + str + "입니다.";
+
+        document.getElementById("result1").innerHTML = res;
+    }
+
+    function proc2() {
+        today = new Date();
+        days = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+        day = today.getDay();   //0~6 사이 값을 얻는다
+
+        res = today.toLocaleString();
+        res += "&nbsp;&nbsp;" + days[day] + "입니다";
+
+        document.getElementById("result2").innerHTML = res;
+        
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>요일 구하기</h2>
+        <pre>
+            today = new Date();
+            res = today.toLocaleString();
+    
+            day = today.getDay();
+            switch (day) {
+                case 0:
+                str = "일요일";
+                    break;
+                case 1:
+                str = "월요일";
+                    break;
+                case 2:
+                str = "화요일";
+                    break;
+                case 3:
+                str = "수요일";
+                    break;
+                case 4:
+                str = "목요일";
+                    break;
+                case 5:
+                str = "금요일";
+                    break;
+                case 6:
+                str = "토요일";
+                    break;
+                default:
+                    break;
+            }
+            res += "&nbsp;&nbsp;" + str + "입니다.";
+    
+            document.getElementById("result1").innerHTML = res;
+        }
+        </pre>
+        <button type="button" onclick="proc1()">실행</button>
+        <div id="result1"></div>
+    </div>
+    <div class="box">
+        <h2>배열을 이용한 요일 구하기</h2>
+        <pre>
+            today = new Date();
+            days = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+
+            day = today.getDay();
+            days[day]   →   days[2]
+        </pre>
+        <button type="button" onclick="proc2()">실행</button>
+        <div id="result2"></div>
+    </div>
+
+</body>
+</html>
