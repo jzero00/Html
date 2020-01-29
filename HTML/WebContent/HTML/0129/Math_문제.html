@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+
+    function proc1() {
+        ans = Math.floor((Math.random() * 10) + 1);
+        cnt = 0;
+        res = "랜덤 값 : " + ans + "<br>";
+        while (true) {
+            input = parseInt(prompt("숫자를 입력해주세요"));
+            cnt++;
+            if(ans > input) {
+                alert("더 큰 수를 입력해주세요");
+                res += cnt + "번째 도전 입력 값 : " + input + "<br>";
+            } else if (ans < input) {
+                alert("더 작은 수를 입력해주세요");
+                res += cnt + "번째 도전 입력 값 : " + input + "<br>";
+            } else if(ans == input) {
+                res += cnt + "번째 도전 입력 값 : " + input + "<br>";
+                res += cnt + "번째만에 성공!!";
+                document.getElementById("result1").innerHTML = res;
+                break;
+            } else {
+                alert("0 ~ 10 사이의 값을 입력하십시오");
+            }
+        }
+    }
+
+    function proc2() {
+        com = ["가위", "바위", "보"];
+        rand = Math.floor(Math.random() * 3);
+        comvalue = com[rand];
+        
+        //사용자 입력
+        input = prompt("입력", "가위 바위 보");
+        res = "컴퓨터 : " + comvalue + "<br>";
+        res += "나는 : " + input + "<br>";
+        res += "결과 : ";
+        if (comvalue == input) {
+            res += "비겼습니다.";
+        } else if(  comvalue == "가위" && input == "바위" ||
+                    comvalue == "바위" && input == "보" || 
+                    comvalue == "보" && input == "가위"){
+                        res += "인간승리!!";
+                    }
+        else {
+            res += "기계승리.. 분발좀 해라";
+        }   
+        document.getElementById("result2").innerHTML = res;
+    }
+
+    function proc3() {
+        arr = new array();
+        for(i = 0; i < 6; i++){
+            output = Math.floor((Math.random()*45)+1);
+        }
+    }
+
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>Math객체</h2>
+        <pre>
+1. 1 ~ 10 사이의 난수를 발생 후 사용자가 이 값을 맞추는 프로그램을 작성하시오.
+입력값에 따라 더 크게, 더 작게 힌트를 준다.
+몇번만에 맞췄는지 횟수를 센다.
+        </pre>
+        <button type="button" onclick="proc1()">실행</button>
+        <div id="result1"></div>
+    </div>
+    
+    <div class="box">
+        <h2>Math객체</h2>
+        <pre>
+가위 바위 보 게임을 할 수 있는 프로그램을 작성하시오.
+(단, 컴퓨터는 랜덤을 이용하고, 사용자는 prompt로 입력 받아서 처리)
+com = ["가위", "바위", "보"];
+        </pre>
+        <button type="button" onclick="proc2()">실행</button>
+        <div id="result2"></div>
+    </div>
+    <div class="box">
+        
+        <h2>Math객체</h2>
+        <pre>
+로또 번호를 생성하는 프로그램을 작성하시오.(1번 ~ 45번 중 6개의 번호를 추첨) 
+        </pre>
+        <button type="button" onclick="proc3()">실행</button>
+        <div id="result3"></div>
+    </div>
+
+</body>
+</html>

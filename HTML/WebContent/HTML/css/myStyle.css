@@ -31,7 +31,7 @@ img{
 }
 
 .box div{
-	border : 2px dotted orange;
+	border : 3px double royalblue;
 	height: auto;
 	margin: 10px;
 	padding: 10px;
@@ -51,4 +51,5 @@ img{
 	color: darkcyan;
 	background: rgb(197, 209, 222);
 	line-height: 1.5em;
+	font-size: 1.1em;
 }

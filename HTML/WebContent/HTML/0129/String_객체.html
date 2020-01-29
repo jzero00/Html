@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="../css/myStyle.css">
+    <script>
+        str = "흔하다고 생각했던 우리 모습이 너와 내 전부가 될 거야";
+        
+    function proc1() {
+        avalue = document.getElementById("area").value;
+        avalue = avalue.replace(/\r/g, "")
+                        .replace(/\n/g, "<br>");
+        //g는 글로벌 : 전체 영역에 대해 적용
+        document.getElementById("result1").innerHTML = avalue;
+
+    }
+
+    function proc2() {
+        avalue = str.substring(20,40);
+        document.getElementById("result2").innerHTML = avalue;
+    }
+
+    function proc3() {
+        svalue = str.slice(20,40);
+        res = "str.slice(20,40)" + svalue;
+        document.getElementById("result3").innerHTML = res;
+    }
+    
+    function proc4() {
+        svalue = str.substr(20,40)
+        res = "str.substr(20,40)" + svalue;
+        document.getElementById("result4").innerHTML = res;
+    }
+
+    function proc5(){
+        res = 'str.split(" ") : <br>';
+        svalue = str.split(" ");
+        for(i = 0; i < svalue.length; i++){
+            res += i + "번째 : " + svalue[i] + "<br>";
+        }
+        document.getElementById("result5").innerHTML = res;
+    }
+    
+    function proc6(){
+        svalue = str.charAt(7);
+        res = 'str.charAt(7) : <br>' + svalue;
+        document.getElementById("result6").innerHTML = res;
+    }
+
+    function proc7() {
+        str2 = "     흔하다고 생각했던 우리 모습이 너와 내 전부가 될 거야         ";
+        res = "str2.length : " + str2.length + "<br>";
+        str2 = str2.trim();
+        res += "str2.trim() : " + str2.length + "<br>";
+        document.getElementById("result7").innerHTML = res;
+    }
+
+    function proc8() {
+        namevalue = document.getElementById("name").value;
+        namevalue = namevalue.trim();
+        if(namevalue.trim().length == 0){
+            alert("이름을 입력하세요");
+            return false;
+        }
+        alert("입력값은 " + namevalue + "입니다.");
+    }
+
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>String 객체</h2>
+        str = "흔하다고 생각했던 우리 모습이 너와 내 전부가 될 거야"
+        <pre>
+- replace(old, new)     : 문자열 변경
+        </pre>
+        <textarea rows="10" cols="40" id="area"></textarea>
+        <button type="button" onclick="proc1()">실행</button>
+        <p>avalue = avalue.replace(/\r/g, "")
+        .replace(/\n/g, "&lt;br&gt;");</p>
+        <div id="result1"></div>
+    </div>
+
+    <div class="box">
+        <h2>String 객체</h2>
+        str = "흔하다고 생각했던 우리 모습이 너와 내 전부가 될 거야"
+        <pre>
+- substring(from, to)   : from ~ to-1 까지 추출
+- slice(from, to)       : from ~ to-1 까지 자르기
+- substr(from, length)  : length(갯수)만큼 추출
+        </pre>
+        <button type="button" onclick="proc2()">Substring</button>
+        <button type="button" onclick="proc3()">Slice</button>
+        <button type="button" onclick="proc4()">Substr</button>
+        <div id="result2"></div>
+        <div id="result3"></div>
+        <div id="result4"></div>
+    </div>
+
+    <div class="box">
+        <h2>String 객체</h2>
+        str = "흔하다고 생각했던 우리 모습이 너와 내 전부가 될 거야"
+        str2 = "     흔하다고 생각했던 우리 모습이 너와 내 전부가 될 거야         "
+        <pre>
+- split(구분자)     : 구분자를 기준으로 문자열 분리, 배열로 리턴
+- charAt(index)     : index번째에 있는 문자를 리턴
+- trim()            : 문자열의 앞뒤 공백을 제거
+        </pre>
+        <button type="button" onclick="proc5()">split</button>
+        <button type="button" onclick="proc6()">charAt</button>
+        <button type="button" onclick="proc7()">trim</button>
+        <div id="result5"></div>
+        <div id="result6"></div>
+        <div id="result7"></div>
+
+        입력후 버튼을 클릭하면 입력데이터의 공백을 제거한다
+        <input type="text" id="name">
+        <button onclick="proc8()" type="button">공백체크</button>
+    </div>
+</body>
+</html>
