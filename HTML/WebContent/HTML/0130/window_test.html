@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+    function proc1(){
+
+        win = window.open("winsub.html", " ", "width=500 height=600");
+        win.moveTo(200, 200);
+
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>window객체</h2>
+        <pre>
+window.open(url, name/target, specs): 새로운 창 열기
+새로 열린 창이 자식 창이고, 자식 창에서 부모창을 가리킬때, opener
+
+버튼을 클릭하면 새로운 창을 열고 이름과 전화번호를 입력받아서
+부모 창에 출력한다
+        </pre>
+        <button type="button" onclick="proc1()">open</button>
+        <div id="result1"></div>
+    </div>
+</body>
+</html>

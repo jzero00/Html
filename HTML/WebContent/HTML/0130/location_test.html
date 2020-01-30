@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+
+    function proc1() {
+        //http://localhost:80/HTML/HTML/0130/location_test.html?id="korea"
+        res = "href : " + location.href + "<br>";
+        res += "protocol : " + location.protocol + "<br>";
+        res += "host : " + location.host + "<br>";
+        res += "hostname : " + location.hostname + "<br>";
+        res += "port : " + location.port + "<br>";
+        res += "pathname : " + location.pathname + "<br>";
+
+        document.getElementById("result1").innerHTML = res;
+    }
+
+    function proc2() {
+        location.href = "test.jsp";
+    }
+
+    function goPage() {
+        location.href = "test.jsp";
+    }
+    
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>Location객체</h2>
+        <pre>
+url의 정보를 얻는다
+href : 전체 url
+port : 
+host : hostname과 port
+hostname :
+pathname :
+protocol :
+        </pre>
+        <button type="button" onclick="proc1()">실행</button>
+        <div id="result1"></div>
+    </div>
+    
+    <div class="box">
+        <h2>Location객체</h2>
+        <pre>
+    - location객체의 사용       
+    1. 자동으로 특정 페이지로 이동
+    2. a태그 사용
+    3. 이벤트(get)
+    4. 이벤트(post)
+    5. 새로운 문서로 대체할때
+    6. 현재 문서를 다시 로드
+        </pre>
+        - 자동으로 특정 페이지로 이동할 때 사용 : location.href
+        <button type="button" onclick="proc2()">자동으로 이동</button>
+        <br>
+        - a 태그 이용
+        <a href="javascript:goPage()">a태그-이동</a>
+        - 이벤트(get)
+        <button type="button" onclick="goPage()">GET</button>
+        <br>
+        - 이벤트(post)
+        <form>
+            <input type="hidden" name="abc" value="korea">
+            <button type="button" onclick="goPagePost()">POST</button>
+        </form>
+        <br>
+        - 새로운 문서로 대체 : 원래 페이지로 돌아올 수 없음
+        <button type="button" onclick="goReplace()">대체</button>
+        <br>
+        - 현재 문서를 다시 로드
+        <button type="button" onclick="goReload()">다시로드</button>
+        <br>
+        
+        <div id="result2"></div>
+    </div>
+</body>
+</html>
