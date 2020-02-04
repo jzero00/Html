@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+
+
+	function proc1() {
+		arr = ["Hello", "Happy", "맛있는 점심", "JavaScript", "HTML", "CSS", "jQuery"];
+		
+		//랜덤 발생 0~arr.length만큼 발생 → arr[랜덤]
+		rand = Math.floor(Math.random()*arr.length);
+		//arr[랜덤]번째 문자열로 textnode를 생성
+		textnode = document.createTextNode(arr[rand]);
+		//p태그 생성
+		ptag = document.createElement('p');
+		//p태그에 textnode를 추가
+		ptag.appendChild(textnode);
+		//div에 p태그를 추가한다
+		document.getElementById("result1").appendChild(ptag);
+	}
+	
+	function proc2() {
+		//부모 div(id="result1")에 검색접근
+		parent = document.getElementById("result1");
+
+		//자식 = 마지막 자식을 검색
+		child = parent.lastChild;
+		
+		//삭제한다
+		parent.removeChild(child);
+	}
+
+	function proc3() {
+		arr = ["Hello", "Happy", "맛있는 점심", "JavaScript", "HTML", "CSS", "jQuery"];
+		
+		
+		//랜덤 발생 0~arr.length만큼 발생 → arr[랜덤]
+		rand = Math.floor(Math.random()*arr.length);
+		//arr[랜덤]번째 문자열로 textnode를 생성
+		textnode = document.createTextNode(arr[rand]);
+		btn = document.createElement('button');
+		btn.innerHTML = "삭제";
+		btn.onclick = function(){
+			
+			ptag = this.parentNode;
+			div = ptag.parent;
+			div.removeChild(ptag);
+		}
+		//p태그 생성
+		ptag = document.createElement('p');
+		//p태그에 textnode를 추가
+		ptag.appendChild(textnode);
+		ptag.appendChild(btn);
+		//div에 p태그를 추가한다
+		document.getElementById("result2").appendChild(ptag);
+		
+
+		
+	}
+
+
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>dom검색 - 추가 / 삭제</h2>
+        <pre>
+추가버튼 클릭시
+	p태그 생성
+	랜덤을 이용한 text 생성
+	text를 p태그에 추가
+	p태그를 div에 추가
+삭제버튼 클릭시
+	div에서 마지막 자식요소(lastChild)를 삭제한다
+		찾은 요소를 삭제한다
+        </pre>
+        <button type="button" onclick="proc1()">추가</button>
+        <button type="button" onclick="proc2()">삭제</button>
+        <div id="result1"></div>
+    </div>
+    
+    	<div class="box">
+        <h2>dom검색 - 추가 / 삭제</h2>
+        <pre>
+추가버튼 클릭시
+	p태그 생성
+	랜덤을 이용한 text 생성
+	새로운 버튼 추가
+	text와 새로운 버튼(삭제)을 p태그에 추가
+	p태그를 div에 추가
+삭제버튼 클릭시
+	div에서 마지막 자식요소(lastChild)를 삭제한다
+		찾은 요소를 삭제한다
+        </pre>
+        <button type="button" onclick="proc3()">추가삭제</button>
+        <div id="result2"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<style>
+img{
+    width: 200px;
+    height: 200px;
+}
+</style>
+<script>
+    function proc1(){
+        vsrc = document.onoff;
+        // alert(vsrc.src);
+        // if(vsrc == "E:/A_TeachingMaterial/5.JQuery/HTML/Html-CSS-jQuery/HTML/WebContent/HTML/images/switch1_off.png")
+        if (vsrc.src.match("switch1_off")) {
+            console.log("switch1_off");
+            vsrc.src = "../images/switch1_on.png";
+        } else {
+            console.log(vsrc.src.match("switch1_off"))
+            vsrc.src = "../images/switch1_off.png";
+        }
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>일부분의 문자열 비교</h2>
+        <pre>
+    match(/정규식/)
+    match("일반문자")
+    전체문자열중에서 일치하는 일부분의 문자가 있는지 판별
+    일치하는 문자가 있으면 해당 문자들을 리턴
+    일치하는 문자가 없으면 null을 리턴한다.
+
+    이름이 onoff인 이미지요소에 접근, src의 속성값을 얻고
+    거기서 switch1_off라는 문자와 일치하는 문자가 있는지 여부를 확인
+    vsrc = document.onoff;
+    if (vsrc.src.match("switch1_off")) {
+    } else {
+    }
+        </pre>
+        <img name="onoff" onclick="proc1()" src="../images/switch1_off.png" alt="">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<style>
+img{
+    width: 100px;
+    height: 100px;
+}
+</style>
+<script>
+    function proc1() {
+        
+        a = setInterval(function(){
+        //result1으로 접근 - 부모
+        parent = document.getElementById('result1');
+
+        //img태그로 접근 - 자식
+        //img의 첫번째 요소로 접근
+        // child = document.getElementsByTagName('img')[0];
+        child = parent.firstChild;
+        //삭제 - 부모.removeChild(자식);
+        parent.removeChild(child);
+        //기존에 있는 요소를 append할때는 기존의 요소가 이동의 의미가 된다
+        //삭제된 요소를 부모의 마지막 요소로 추가한다
+        parent.appendChild(child);
+        },500);
+    }
+    function proc2() {
+        clearInterval(a);
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>이미지 회전</h2>
+        <pre>
+0.5초마다 한번씩
+첫번째 이미지를 삭제해서
+마지막으로 추가한다
+        </pre>
+
+        <div id="result1">
+            <img src="../images/서현진.jpg">
+            <img src="../images/컴퓨터1.jpg">
+            <img src="../images/com.jpg">
+            <img src="../images/gin.jpg">
+            <img src="../images/zz.PNG">
+            <img src="../images/20180529184603_a1.png">
+            <img src="../images/f54bxk_O_400x400.jpg">
+            
+        </div>
+        <button type="button" onclick="proc1()">실행</button>
+        <button type="button" onclick="proc2()">멈춤</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+    function proc1() {
+        f = document.ff;
+        danvalue = f.dan.value;
+        res = "";
+        for(i = 1; i < 10; i++){
+            res += danvalue + " * " + i + " = " + danvalue*i + "\n";
+        }
+        f.area.value = res;
+        f.area.style.fontSize = "1.2em";
+
+    }
+    function proc2() {
+        df2 = document.ff2;
+        //입력하거나 선택한 값을 가져온다 - value
+        nameValue = df2.name.value;
+        gendValue = df2.gender.value;
+
+        hovalue = "";
+        for(i = 0; i < df2.hobby.length; i++){
+            //체크상태값을 얻는다.
+            if(df2.hobby[i].checked){
+                hovalue += df2.hobby[i].value + ","; 
+            }
+        }
+        hovalue = hovalue.substring(0, hovalue.lastIndexOf(","));
+
+        res = "이름 : " + nameValue + "\n";
+        res += "성별 : " + gendValue + "\n";
+        res += "취미는 " + hovalue;
+        
+        df2.area.value = res;
+        df2.area.style.fontSize = "1.5em";
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>구구단 출력</h2>
+        <pre>
+    name을 이용한 접근
+    
+    입력 텍스트에서 값 가져오기 : value
+    danvalue = f.dan.value;
+
+    textarea에 출력하기 : value
+    f.area.value = res;
+        </pre>
+        <form name ="ff">
+        <input name="dan" type="text" size="3">단
+        <button type="button" onclick="proc1()">실행</button>
+        <div id="result1">
+            <textarea name="area" rows="10" cols="30"></textarea>
+        </div>
+    </form>
+    </div>
+
+    <div class="box">
+        <h2>정보 출력</h2>        
+    <pre>
+        체크되어 있는 상태 값 얻기 : .checked
+        
+        for(i = 0; i &lt; df2.hobby.length; i++){
+            //체크상태값을 얻는다.
+            if(df2.hobby[i].checked){
+                hovalue += df2.hobby[i].value + ","; 
+            }
+        }
+    </pre>
+    <form name ="ff2">
+    이름 : <input name="name" type="text"><br>
+    성별 : 	<input value="남자" type="radio" name="gender" checked>남 
+    	<input value="여자" type="radio" name="gender">여<br>
+   	취미 :
+   	<input value="여행" type="checkbox" name="hobby" checked>여행
+   	<input value="독서" type="checkbox" name="hobby">독서 
+   	<input value="영화감상" type="checkbox" name="hobby">영화감상 
+   	<input value="바둑" type="checkbox" name="hobby">바둑 
+   	<input value="장기" type="checkbox" name="hobby">장기 
+   	<input value="등산" type="checkbox" name="hobby">등산
+   	<input value="낚시" type="checkbox" name="hobby">낚시<br>
+    <button type="button" onclick="proc2()">결과출력</button><br>
+    <textarea name="area" rows="10" cols="30"></textarea>
+    </form>
+    </div>
+</body>
+</html>

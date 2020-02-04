@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+    function changeColor(c){
+        
+        result = document.getElementById('result1');
+        result.style.background = c;
+    }
+    window.onload = function (){
+        document.body.style.background = 'blue';
+        f = document.ff;
+    }
+    function loadProc(){
+        document.body.style.background = 'pink';
+        f = document.ff;
+    }
+
+    function selProc() {
+
+    }
+
+    function nameProc() {
+        // f = document.ff;
+        nameValue = f.name.value;
+        val = "";
+        for(i = 0; i < nameValue.trim().length; i++){
+        if(nameValue.substr(i,1) >= 'A' && nameValue.substr(i,1) <= 'Z' ){
+            val += nameValue.substr(i,1).toLowerCase();
+        } else if(nameValue.substr(i,1) >= 'a' && nameValue.substr(i,1) <= 'z'){
+            val += nameValue.substr(i,1).toUpperCase();
+        }
+        }
+        // lowerValue = nameValue.toLowerCase();
+        
+        f.name.value = val;
+        // f.name.value = lowerValue;
+    }
+
+
+</script>
+</head>
+<body onload="loadProc()">
+    <div class="box">
+        <H2></H2>
+        <pre>
+        body onload = "loadProc()"
+        window.onload = function(){ }
+
+        onload이벤트가 동시에 있을 때
+        window.onload는 무시된다
+        </pre>
+        <input type="radio" name="color" onclick="changeColor('brown')">갈색
+        <input type="radio" name="color" onclick="changeColor('lightgreen')">녹색
+        <div id="result1"></div>
+        <form name="ff">
+이름 <input type="text" name="name" onchange="selProc()">
+            &nbsp;&nbsp;&nbsp;
+선택 : <select name="sel" onchange="nameProc()">
+                <option value="봄">봄</option>
+                <option value="여름">여름</option>
+                <option value="가을" selected>가을</option>
+                <option value="겨을">겨을</option>
+            </select>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

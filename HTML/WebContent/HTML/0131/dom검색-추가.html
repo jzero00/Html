@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+
+	function proc1(){
+
+		lilist = document.getElementsByTagName("li");
+		res = "";
+		for (i = 0; i < lilist.length; i++){
+			res += lilist[i].firstChild.data + "<br>";
+		}
+		//그냥 firstChild라고 입력하면 [objectData] 로 결과가 나온다.
+		document.getElementById("result1").innerHTML = res;
+	}
+
+	function proc2(text) {
+		
+		txtnode = document.createTextNode(text);
+		// document.getElementById("result2").appendChild(txtnode);
+
+		//p태그 생성 - p태그에 text를 추가
+		ptag = document.createElement('p');
+		ptag.appendChild(txtnode);
+		//p태그를 div에 추가
+		document.getElementById("result2").appendChild(ptag);
+	}
+
+	function proc3() {
+		ultag = document.getElementsByTagName("ul")[1];
+		lilist = ultag.getElementsByTagName("li");
+		
+		for(i = 0; i < lilist.length; i++){
+			//문자 가져오기
+			imgname = lilist[i].firstChild.data;
+
+			//img태그 생성
+			imgtag = document.createElement("img");
+
+			//img의 src, width, height 설정
+			imgtag.src = "../images/" + imgname + ".jpg";
+			imgtag.width = 100;
+			imgtag.height = 100;
+
+			//lilist에 img태그를 추가하기
+			lilist[i].appendChild(imgtag);
+		}
+	}
+
+	function proc4(a){
+
+		vtxt = a.firstChild.data;
+
+		//img태그 생성
+		imgtag = document.createElement("img");
+
+		//img의 src, width, height 설정
+		imgtag.src = "../images/" + vtxt + ".jpg";
+		imgtag.width=100;
+		imgtag.height=100;
+
+		a.appendChild(imgtag);
+	}
+
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>dom 순회</h2>
+		<pre>
+각 li요소들의 첫번째 child를 검색
+firstChild 	: object Text
+data		: object Text의 값
+		</pre>
+		<ul>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+			<li>jQuery</li>
+		</ul>
+        <button type="button" onclick="proc1()">실행</button>
+        <div id="result1"></div>
+	</div>
+	
+    <div class="box">
+        <h2>dom 순회</h2>
+		<pre>
+새로운 text 요소 추가
+createTextNode("문자열")
+부모요소.appendChild("새로운 자식 요소")
+		</pre>
+        <button type="button" onclick="proc2('이런들 어떠하리 저런들 어떠하리 ')">실행</button>
+        <div id="result2"></div>
+	</div>
+	
+    <div class="box">
+        <h2>dom 순회</h2>
+		<pre>
+- li의 문자열을 검색 가져오기
+- 해당 문자열로 img 요소 추가
+	imgtag = createElement("img")
+	imgtag.src = "문자열.jpeg"
+- 이미지를 li요소에 추가
+	부모요소(li).appendChild("img 요소")
+		</pre>
+	<ul>
+		<li>홍길동</li>
+		<li>가구1</li>
+		<li>spongebob</li>
+		<li>IMG_0213</li>
+	</ul>
+        <button type="button" onclick="proc3()">실행</button>
+        <div id="result3"></div>
+	</div>
+	
+    <div class="box">
+        <h2>dom 순회</h2>
+		<pre>
+- li의 문자열을 검색 가져오기
+- 해당 문자열로 img 요소 추가
+	imgtag = createElement("img")
+	imgtag.src = "문자열.jpeg"
+- 이미지를 li요소에 추가
+	부모요소(li).appendChild("img 요소")
+		</pre>
+	<ul>
+		<li onclick="proc4(this)">홍길동</li>
+		<li onclick="proc4(this)">가구1</li>
+		<li onclick="proc4(this)">spongebob</li>
+		<li onclick="proc4(this)">IMG_0213</li>
+	</ul>
+        <div id="result4"></div>
+	</div>
+	
+</body>
+</html>

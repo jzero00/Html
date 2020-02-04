@@ -26,6 +26,33 @@
         location.href = "test.jsp";
     }
     
+    function goPagePost() {
+		//입력한 값(hidden값)을 서버프로그램으로 보낸다
+		mf = document.myform;
+		
+		mf.action = "testpost.jsp";
+		mf.method = "post";
+		mf.submit();
+	}
+    
+    function goReplace(){
+    	location.replace("test.jsp");
+    }
+    
+    function goReload() {
+		
+    	str = ["Hello","HTML","CSS","JAVASCRIPT","JSP","jQuery"];
+    	rand = Math.floor(Math.random()* str.length);
+    	
+    	res = "<h1>" + str[rand] + "</h1>";
+    	result = document.getElementById("result2");
+    	result.innerHTML = res;
+        result.style.color = "red";
+    	
+        setTimeout(function () {
+            location.reload();
+        }, 1000)
+	}
 </script>
 </head>
 <body>
@@ -64,7 +91,7 @@ protocol :
         <button type="button" onclick="goPage()">GET</button>
         <br>
         - 이벤트(post)
-        <form>
+        <form name="myform">
             <input type="hidden" name="abc" value="korea">
             <button type="button" onclick="goPagePost()">POST</button>
         </form>
