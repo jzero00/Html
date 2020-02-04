@@ -24,8 +24,10 @@
     }
 
     function nameProc() {
-        // f = document.ff;
+        
+        // 입력한 값 가져오기
         nameValue = f.name.value;
+        //한글자씩 대소문자 변
         val = "";
         for(i = 0; i < nameValue.trim().length; i++){
         if(nameValue.substr(i,1) >= 'A' && nameValue.substr(i,1) <= 'Z' ){
