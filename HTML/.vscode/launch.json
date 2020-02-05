@@ -75,6 +75,54 @@
       "port": 9275,
       "webRoot": "${workspaceFolder}",
       "url": "http://localhost:80/HTML/HTML/0204/event_test.html"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (4)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9287,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:52337/p/HTML/WebContent/HTML/0204/select_%EA%B5%AC%EA%B5%AC%EB%8B%A8.html?_cmAuth\u003diqsifxdvgi"
+    },
+    {
+      "name": "Launch Chrome localhost (5)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9251,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0204/select_%EA%B5%AC%EA%B5%AC%EB%8B%A8.html"
+    },
+    {
+      "name": "Launch Chrome localhost (6)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9249,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0205/event_test2.html"
+    },
+    {
+      "name": "Launch Chrome localhost (7)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9243,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0205/drag_drop.html"
+    },
+    {
+      "name": "Launch Chrome localhost (8)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9253,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0205/%EC%9C%A0%ED%9A%A8%EC%84%B1%EA%B2%80%EC%A6%9D.html"
+    },
+    {
+      "name": "Launch Chrome localhost (9)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9230,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0205/formsend_valid.html"
     }
   ]
 }

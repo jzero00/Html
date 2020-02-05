@@ -24,14 +24,15 @@ img{
 }
 
 .box{
-	background:rgb(143, 188, 219);
+	border-radius: 10px;
+	background: #6B91C6;
 	margin: 10px;
 	height: auto;
 	padding: 20px;
 }
 
 .box div{
-	border : 3px double royalblue;
+	border : 3px double #3D6B9B;
 	height: auto;
 	margin: 10px;
 	padding: 10px;
@@ -49,7 +50,7 @@ img{
 .box pre{
 	padding: 15px;
 	color: darkcyan;
-	background: rgb(197, 209, 222);
+	background: #E1B283;
 	line-height: 1.5em;
 	font-size: 1.1em;
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<style>
+    .box div{
+        height: 200px;
+    }
+    img{
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+    }
+</style>
+<script>
+    function startProc() {
+        
+        //event.target → img
+        //이벤트 대상을 설정 - setData("name", "value")
+        event.dataTransfer.setData("target_img", event.target.id);
+    }
+
+    function dropProc(){
+        //이벤트 대상을 drop - getData("name")
+        imgid = event.dataTransfer.getData("target_img");
+        
+        dragimg = document.getElementById(imgid);
+        // event.target → div
+
+        //이미지 위에 이미지를 drop할 때 이미지의 부모(div)를 검색해서 drop
+        // console.log(event.target.tagName);
+        if(event.target.tagName == "IMG"){
+            parent = event.target.parentNode;
+            parent.appendChild(dragimg);
+        } else {
+        event.target.appendChild(dragimg);
+        }
+    }
+
+    function overProc() {
+        //원래 dragover의 기능을 삭제한다.
+        event.preventDefault();
+    }
+</script>
+</head>
+<body>
+    <div class="box" ondragover="overProc()" ondrop="dropProc()">
+        <h2>Drad & Drop</h2>
+        <pre>
+드래그 대상 : 드래그가 가능하도록 설정 : draggable = "true"
+dragStart : 드래그 대상을 설정 : event.dataTransfer.setData("name", val)
+dragover :  원래의 기능을 삭제한다. event.preventDefault()
+drop : 드래그 대상으로 설정된 요소를 drop한다.
+            dragimg = event.dataTransfer.getData("name")
+            event.target.appendChild(dragimg)
+        </pre>
+        <div id="result1" ondragover="overProc()" ondrop="dropProc()"></div>
+        <br> 
+        <image id="img1" src="../images/movie1.jpg" draggable="true" ondragstart="startProc()">
+        <image id="img2" src="../images/movie2.jpg" draggable="true" ondragstart="startProc()">
+        <image id="img3" src="../images/music1.PNG" draggable="true" ondragstart="startProc()">
+        <image id="img4" src="../images/music2.jpg" draggable="true" ondragstart="startProc()">
+        <image id="img5" src="../images/서현진.jpg" draggable="true" ondragstart="startProc()">
+    </div>
+</body>
+</html>

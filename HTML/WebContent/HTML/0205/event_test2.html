@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script>
+    window.onload = function (){
+        btn1 = document.getElementById("btn1");
+        result1 = document.getElementById('result1');
+    }
+    function downProc() {
+        //버튼을 누를 때
+        btn1.style.background = 'green';
+        btn1.style.color = 'yellow';
+    }
+    
+    function upProc() {
+        //눌려진 버튼을 놓을 때
+        btn1.style.background = 'blue';
+        btn1.style.color = 'white';
+    }
+
+    function overProc() {
+        //div에 마우스를 누르지 않고 올려놓을때
+        result1.style.background = "pink";
+        result1.style.height = '50px';
+    }
+    
+    function outProc() {
+        //div에서 마우스 포인터가 나갈 때
+        result1.style.background = 'white';
+        result1.style.height = 'auto';
+        btn1.style.display = 'block';
+    }
+
+    function dblProc() {
+        btn1.style.display = "none";
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>mouse 이벤트</h2>
+        <pre>
+onmousedown : 마우스 누를 때
+onmouseup   : 마우스 놓을 때
+onmouseover : 마우스 포인터가 들어올 때
+onmouseout  : 마우스 포인터가 나갈 때
+onclick     : 클릭
+ondblclick  : 더블클릭
+        </pre>
+        <button type="button" id="btn1"
+        onmousedown="downProc()"
+        onmouseup="upProc()"
+        ondblclick="dblProc()">실행</button>
+        <div onmouseover="overProc()" onmouseout="outProc()" id="result1"></div>
+    </div>
+</body>
+</html>
