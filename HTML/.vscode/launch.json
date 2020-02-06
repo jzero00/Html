@@ -123,6 +123,22 @@
       "port": 9230,
       "webRoot": "${workspaceFolder}",
       "url": "http://localhost:80/HTML/HTML/0205/formsend_valid.html"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (5)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9207,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:52337/p/HTML/WebContent/HTML/0205/formsend_valid.html?_cmAuth\u003diqsifxdvgi"
+    },
+    {
+      "name": "Launch Chrome localhost (10)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9232,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0206/file_api.html"
     }
   ]
 }
