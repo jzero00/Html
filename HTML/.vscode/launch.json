@@ -139,6 +139,70 @@
       "port": 9232,
       "webRoot": "${workspaceFolder}",
       "url": "http://localhost:80/HTML/HTML/0206/file_api.html"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (6)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9209,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:52337/p/HTML/WebContent/HTML/0207/jqtest1.html?_cmAuth\u003diqsifxdvgi"
+    },
+    {
+      "name": "Launch Chrome localhost (11)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9283,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0207/jqtest1.html"
+    },
+    {
+      "name": "Launch Chrome localhost (12)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9207,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0207/jqtest2.html"
+    },
+    {
+      "name": "Launch Chrome localhost (13)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9242,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0207/clickhide.html"
+    },
+    {
+      "name": "Launch Chrome localhost (14)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9241,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0207/context_test.html"
+    },
+    {
+      "name": "Launch Chrome localhost (15)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9298,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0207/dom_jquery.html"
+    },
+    {
+      "name": "Launch Chrome localhost (16)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9264,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0207/appendTo.html"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (7)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9247,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:52337/p/HTML/WebContent/HTML/0207/appendTo.html?_cmAuth\u003diqsifxdvgi"
     }
   ]
 }

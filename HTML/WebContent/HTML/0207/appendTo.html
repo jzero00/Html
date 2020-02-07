@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+$(function () {$('button:eq(0)').on('click', function () {
+    ptag = $('<p onclick="proc1()" id="p1" class="pp">Hello jQuery!</p>');
+    $(ptag).appendTo('#result1');
+})
+$('button:eq(1)').on('click', function () {
+    vimg = $("<img src>",
+    {
+        'src' : '../images/music2.jpg',
+        'alt' : 'Love Poem',
+        'width' : '200px',
+        'height' : '200px',
+        'click' : function () {
+            $(this).css('border', '3px solid black');
+        }
+    }).appendTo('#result2');
+    // $(vimg).appendTo('#result2');
+})
+})
+    function proc1() {
+        alert("hello");
+    }
+
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>새로운 요소 생성-추가</h2>
+        <pre>
+버튼을 클릭하면 p태그를 새롭게 생성해서
+div에 추가한다.
+        </pre>
+        <button type="button">실행</button>
+        <div id="result1"></div>
+    </div>
+
+    <div class="box">
+        <h2>새로운 요소 생성-추가</h2>
+        <pre>
+버튼을 클릭하면 img태그를 새롭게 생성해서
+div에 추가한다.
+        </pre>
+        <button type="button">이미지 생성</button>
+        <div id="result2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+    // $(document).ready(function () {
+$(function () {
+    $('h1').on('click', function () {
+    //콜백메소드 이름없이 버튼 클릭에 의해 자동호출된다.
+    $(this).hide();
+    //보이는 h1이 있는지 여부 확인
+    if($('h1:visible').length == 0){
+    // $('#btn1').css('display', 'block');
+    $('#btn1').show();
+    }
+    })
+    //버튼을 클릭하면
+    // $('#btn1').click(function () {
+    $('#btn1').on('click',function () {
+    $('h1').show();
+    $(this).hide();
+    })
+})
+</script>
+<style>
+    #btn1{
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <div class="box">
+        <h2></h2>
+        <pre>
+<h1>클릭하면 사라집니다1</h1>
+<h1>클릭하면 사라집니다2</h1>
+<h1>클릭하면 사라집니다3</h1>
+<h1>클릭하면 사라집니다4</h1>
+<h1>클릭하면 사라집니다5</h1>
+<h1>클릭하면 사라집니다6</h1>
+<h1>클릭하면 사라집니다7</h1>
+<h1>클릭하면 사라집니다8</h1>
+<h1>클릭하면 사라집니다9</h1>
+<h1>클릭하면 사라집니다10</h1>
+        </pre>
+        <button id="btn1" type="button">보이기</button>
+        <div id="result1"></div>
+    </div>
+</body>
+</html>

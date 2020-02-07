@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+/*     window.onload = function (){
+        result = document.getElementById('result1');
+        result.innerHTML = "<h1>Hola!</h1>";
+        result.style.color = "red";
+        but = document.getElementsByTagName('button')[0];
+    } */
+/* jQuery단어를 $로 대신해 쓸 수 있다.
+but = $('button:eq(0)')
+but.on('click', function name(params) {}) 
+window.onload = function (){....
+를 $(document).ready(function (){ 로 쓰는게 가능!*/
+    $(document).ready(function (){
+
+        $('button:eq(0)').on('click',function () {
+            
+            result = $('#result1');
+            result.html("<h1>Hola~! jQuery</h1>");
+            result.css('color', 'deepblue');
+            result.css('background', 'pink');
+        })
+        
+    })
+function proc1() {
+    result = $('#result1');
+    result.html("<h1>Hi~! proc1</h1>");
+    result.css('color', 'black');
+    result.css('background', 'yellow');
+}
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2></h2>
+        <pre>
+
+        </pre>
+        <button type="button">실행jQuery</button>
+        <button type="button" onclick="proc1()">실행proc</button>
+        <div id="result1"></div>
+    </div>
+</body>
+</html>
