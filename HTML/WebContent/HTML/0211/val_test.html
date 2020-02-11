@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="../css/myStyle.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+    $(function () {
+        $('button').on('click', function () {
+            // document.getElementById('name').value;
+            // document.getElementById('id').value;
+
+            nvalue = $('#name').val();
+            idvalue = $('#id').val();
+
+            res = "아이디 : " + idvalue + "<br>";
+            res += "이름 : " + nvalue + "<br>";
+
+            //div에 출력
+            // document.getElementById('result1').innerHTML = res;
+            $('#result1').html(res);
+
+            //출력 - textarea
+            res = res.replace(/<br>/g, "\r\n");
+            $('#area').val(res);
+
+        })
+    })
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h2></h2>
+        <pre>
+html()
+text()
+val() 	: 모든 input 타입 - text, password, checkbox, radio
+		  textarea, select option
+        </pre>
+        이름<input type="text" id="name">
+        아이디<input type="text" id="id">
+        <button type="button">실행</button>
+        <div id="result1"></div>
+        <textarea rows="10" cols="50" id="area"></textarea>
+    </div>
+</body>
+
+</html>
