@@ -35,6 +35,30 @@
       "port": 9209,
       "webRoot": "${workspaceFolder}",
       "url": "http://127.0.0.1:52337/p/HTML/WebContent/HTML/%EC%84%A0%ED%83%9D%EC%9E%90-%EC%97%98%EB%A6%AC%EB%A8%BC%ED%8A%B8.html?_cmAuth\u003diqsifxdvgi"
+    },
+    {
+      "name": "Launch Chrome localhost (1)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9240,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0211/%EC%84%A0%ED%83%9D%EC%9E%90_%EC%86%8D%EC%84%B11.html"
+    },
+    {
+      "name": "Launch Chrome localhost (2)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9268,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0211/%EC%84%A0%ED%83%9D%EC%9E%90_%EC%86%8D%EC%84%B12.html"
+    },
+    {
+      "name": "Launch Chrome localhost (3)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9207,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:80/HTML/HTML/0211/%EC%84%A0%ED%83%9D%EC%9E%90_form.html"
     }
   ]
 }
