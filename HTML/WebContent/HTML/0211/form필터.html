@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+	$(function() {
+		$('#btn1').on('click', function() {
+			$('form :enabled').css('border', '2px solid lime');
+			$('form :disabled').css('border', '2px solid black');
+		})
+
+		$('#btn2').on('click', function() {
+			//이미지의 상태값을 가져온다.	-get
+// 			$('input[type=image]').css('border', '2px solid lime');
+			imgst = $(':image').prop('disabled');
+
+// 			$('form :disabled').css('border', '2px solid black');true이면 사용 불가능, false이면 사용 가능
+			//가져온 값을 반대로 설정한다.	-set
+			imgst = !imgst;
+			$(':image').prop('disabled', imgst);
+			console.log(imgst);
+			
+			selst = $('#sel').prop('disabled');
+			selst = !selst;
+			selst = $('#sel').prop('disabled', selst);
+			
+			passst = $('#pass').prop('disabled');
+			passst = !passst;
+			passst = $('#pass').prop('disabled', passst)
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<div class="box">
+		<h2></h2>
+		<pre>
+	:enabled	: 사용 가능, 접근 가능, 실행 가능
+	:diabled	: 사용 불가능, 접근 불가능, 실행 불가능
+	
+	$('form :enabled').css('border', '2px solid lime');
+	$('form :disabled').css('border', '2px solid black');
+	
+	상태값 가져오기
+	prop('상태속성이름')		: true 또는 false를 리턴한다
+	
+	상태값 변경
+	prop('상태속성이름', true)	: 해당 상태를 설정
+	prop('상태속성이름', false)	: 해당 상태를 해제
+
+	prop('disabled', true)		: 사용 불가능으로 변경
+	prop('disabled', false)		: 사용 가능으로 변경 - enabled를 사용하지 않는다.
+	
+	
+        </pre>
+		<form action="../0211/formtest.jsp">
+			<input type="button" name="disButton" value="Input Button" disabled><br>
+			<input type="checkbox" name="enCheckbox">체크<br>
+			<input type="file" name="disFile"><br>
+			<input type="hidden" name="enHidden" value=“”> <br>
+			<input type="image" src="../images/image.1.jpg" alt="Submit" disabled><br>
+			<input type="password" value="1111" name="enPassword" id="pass" disabled> <br>
+			<input type="radio" name="disRadio" value="남" disabled> 남<br>
+			<input type="reset" name="enReset" value="취소"><br>
+			<input type="submit" name="disSubmit" value="제출" disabled> <br>
+			<input type="text" name="enText" value="input text"> <br>
+			<select id='sel' name="disSelect" disabled>
+			<option>Option</option>
+			</select><br>
+			<textarea name="enTextarea" rows=10 cols=20>text</textarea>
+			<br>
+			<button name="disButton2" onclick="javascript:alert('aaaaa');">Button</button>
+			<br>
+		</form>
+
+		<button type="button" id='btn1'>실행</button>
+		<button type="button" id='btn2'>변경</button>
+	</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+$(function(){
+	
+	$('button:eq(0)').on('click', function() {
+		$('.tab1 td:first-child').css('background', '#0078FF');
+		$('.tab1 td:nth-child(2)').css('background', '#148CFF');
+		$('.tab1 td:last-child').css('background', '#28A0FF');
+	})
+	
+	$('button:eq(1)').on('click', function() {
+		$('.tab2 td:first-child').css('background', '#FFB400');
+		$('.tab2 td:nth-child(2)').css('background', '#FFDC46');
+		$('.tab2 td:last-child').css('background', '#FDE1B4');
+		$('.tab2 tr:first td').css('background', '#0A6E0A').css('color','white');
+	})
+
+})
+</script>
+<style type="text/css">
+table {
+	width: 500px;
+	height: 500px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+    <div class="box">
+        <h2>자식필터</h2>
+        <pre>
+:nth-child(인덱스)
+:nth-child(even/odd)
+:nth-child(수식) : nth-child(4n)
+        </pre>
+        <table border="1" class='tab1'>
+        	<tr id='tr'>
+        		<td id='td'>이름</td>
+        		<td id='td'>주소</td>
+        		<td id='td'>전화번호</td>
+        	</tr>
+        	<tr id='tr'>
+        		<td id='td'>홍길동</td>
+        		<td id='td'>대전</td>
+        		<td id='td'>010-222-333</td>
+        	</tr>
+        	<tr id='tr'>
+        		<td id='td'>진달래</td>
+        		<td id='td'>서울</td>
+        		<td id='td'>010-444-555</td>
+        	</tr>
+        	<tr id='tr'>
+        		<td id='td'>개나리</td>
+        		<td id='td'>부산</td>
+        		<td id='td'>010-666-777</td>
+        	</tr>
+        	<tr id='tr'>
+        		<td id='td'>무궁화</td>
+        		<td id='td'>대구</td>
+        		<td id='td'>010-888-999</td>
+        	</tr>
+        </table>
+        <button type="button">실행</button>
+        
+         <table border="1" class='tab2'>
+        	<tr id='tr'>
+        		<td id='td'>이름</td>
+        		<td id='td'>주소</td>
+        		<td id='td'>전화번호</td>
+        	</tr>
+        	<tr id='tr'>
+        		<td id='td'>홍길동</td>
+        		<td id='td'>대전</td>
+        		<td id='td'>010-222-333</td>
+        	</tr>
+        	<tr id='tr'>
+        		<td id='td'>진달래</td>
+        		<td id='td'>서울</td>
+        		<td id='td'>010-444-555</td>
+        	</tr>
+        	<tr id='tr'>
+        		<td id='td'>개나리</td>
+        		<td id='td'>부산</td>
+        		<td id='td'>010-666-777</td>
+        	</tr>
+        	<tr id='tr'>
+        		<td id='td'>무궁화</td>
+        		<td id='td'>대구</td>
+        		<td id='td'>010-888-999</td>
+        	</tr>
+        </table>
+        <button type="button">실행</button>
+    </div>
+</body>
+</html>

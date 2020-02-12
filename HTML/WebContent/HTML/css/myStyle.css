@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 *{
-	/* background-color: rgb(143, 188, 219); */
+	background-color: #AECDFF;
 }
 
 pre {
@@ -12,7 +12,7 @@ pre {
 	font-family: "나눔스퀘어라운드";
 	font-weight: normal;
 	line-height: 1.5;
-	border-radius: 20px;
+	border-radius: 10px;
 	color: aliceblue;
 }
 
@@ -24,14 +24,14 @@ img{
 
 .box{
 	border-radius: 10px;
-	background: #6B91C6;
+	background: #AECDFF;
 	margin: 10px;
 	height: auto;
 	padding: 20px;
 }
 
 .box div{
-	border : 3px double #3D6B9B;
+	border : 4px dotted #78A9ED;
 	height: auto;
 	margin: 10px;
 	padding: 10px;
@@ -47,9 +47,10 @@ img{
 }
 
 .box pre{
+	margin: 10px;
 	padding: 15px;
-	color: darkcyan;
-	background: #E1B283;
+	color: #000069;
+	background: #86A5FF;
 	line-height: 1.5em;
 	font-size: 1.1em;
 }

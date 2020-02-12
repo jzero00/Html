@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<style type="text/css">
+	li{
+		font-size: 20px;
+	}
+</style>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+$(function(){
+	//ol그룹에서 각각 하나씩 선택
+	$('#li:first-child').css('border', '3px solid red');
+	//모든 li중에 첫번째 선택
+	$('#li:first').css('background', 'yellow');
+})
+</script>
+</head>
+<body>
+    <div class="box">
+        <h2>자식필터</h2>
+        <pre>
+	:first-child
+	:last-child
+
+	ol그룹에서 각각 하나씩 선택
+	$('#li:first-child').css('border', '3px solid red');
+	모든 li중에 첫번째 선택
+	$('#li:first').css('background', 'yellow');
+        </pre>
+        <h2>여자에게 인기있는 남자들</h2>
+        <ol>
+        	<li id='li'>능력있는 남자</li>
+        	<li id='li'>돈 많은 남자</li>
+        	<li id='li'>잘 생긴 남자</li>
+        	<li id='li'>프로그래머</li>
+        </ol>
+        
+        <h2>남자에게 인기있는 여자들</h2>
+        <ol>
+        	<li id='li'>예쁜 여자</li>
+        	<li id='li'>귀여운 여자</li>
+        	<li id='li'>섹시한 여자</li>
+        </ol>
+        <button type="button" onclick="proc1()">실행</button>
+        <div id="result1"></div>
+    </div>
+</body>
+</html>
