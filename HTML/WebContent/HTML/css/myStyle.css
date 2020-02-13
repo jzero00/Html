@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 *{
 	background-color: #AECDFF;
+	color: #005596;
 }
 
 pre {
@@ -13,7 +14,7 @@ pre {
 	font-weight: normal;
 	line-height: 1.5;
 	border-radius: 10px;
-	color: aliceblue;
+	color: #005596;
 }
 
 img{
@@ -31,7 +32,7 @@ img{
 }
 
 .box div{
-	border : 4px dotted #78A9ED;
+	border : 4px dashed #78A9ED;
 	height: auto;
 	margin: 10px;
 	padding: 10px;
@@ -39,7 +40,7 @@ img{
 
 .box button{
 	color: white;
-	background: blue;
+	background: #5A78AF;
 	padding: 5px;
 	margin: 5px;
 	border-radius: 40px;
@@ -49,7 +50,7 @@ img{
 .box pre{
 	margin: 10px;
 	padding: 15px;
-	color: #000069;
+	color: #005596;
 	background: #86A5FF;
 	line-height: 1.5em;
 	font-size: 1.1em;

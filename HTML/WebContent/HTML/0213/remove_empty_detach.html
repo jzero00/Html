@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+	$(function() {
+		$('#emp1').on('click', function() {
+			$('#dd').empty();
+		})
+		$('#re1').on('click', function() {
+			$('#dd').remove();
+		})
+		
+		$('.pp').on('click', function () {
+			$(this).css('font-size', '+=2px');
+		})
+		$('#re2').on('click', function() {
+			$('#result2').append($('#p1').remove());
+		})
+		$('#det1').on('click', function() {
+			$('#result2').append($('#p2').detach());
+		})
+		$('#cl').on('click', function() {
+			$('#cp3').clone().prependTo('#result3');
+		})
+		$('#clt').on('click', function() {
+			$('#result3').prepend($('#cp4').clone(true));
+		})
+	})
+</script>
+<style type="text/css">
+	#dd{
+	background: yellow;
+	}
+</style>
+</head>
+<body>
+	<div class="box">
+	<h2>비우기와 지우기</h2>
+	<pre>
+	
+	empty()	: 대상 요소는 삭제하지 않고 자식들만 지운다.
+	remove(): 대상 요소뿐만 아니라 자식 요소까지 함께 지워진다.
+    </pre>
+		<div id="dd">오늘은 목요일 너무 졸립다.. 집가고 싶다...</div>
+		<button type="button" id="emp1">empty</button>
+		<button type="button" id="re1">remove</button>
+		
+		<div id="result1"></div>
+	</div>
+	<hr>
+	<div class="box">
+	<h2>삭제시 이벤트 확인</h2>
+		<pre>
+		
+	remove()	: 요소 삭제시 이벤트 핸들러로 삭제
+	detach()	: 요소 삭제시 이벤트 핸들러는 삭제되지 않는다
+        </pre>
+		<p class="pp" id="p1">멍하니 아무 일도 할 일이 없어 이게 이별인 거니</p>
+		<p class="pp" id="p2">전화기 가득 찬 너와의 메시지만 한참 읽다 읽다</p>
+		<p class="pp" id="p3">너의 목소리 마치 들린 것 같아 주위를 둘러보면</p>
+		<p class="pp" id="p4">내 방엔 온통 너와의 추억투성이 이제야 눈물이</p>
+		<p class="pp" id="p5">수고했어 사랑 고생했지 나의 사랑 우리 이별을 고민했던 밤</p>
+		<p class="pp" id="p6">서로를 위한 이별이라고 사랑했단 너의 말을 믿을게</p>
+		<p class="pp" id="p7">혹시 너무 궁금해 혹시 너무 그리우면 꼭 한 번만 보기로 해</p>
+		<button type="button" id="re2">remove</button>
+		<button type="button" id="det1">detach</button>
+		<div id="result2"></div>
+	</div>
+	<hr>
+	<div class="box">
+	<h2>복사시 이벤트 확인</h2>
+		<pre>
+		
+	clone()		: 요소 복사할때 이벤트 핸들러는 복사되지 않는다.
+	clone(true)	: 요소 삭제할때 이벤트 핸들러도 함께 복사된다.
+        </pre>
+		<p class="pp" id="cp1">멍하니 아무 일도 할 일이 없어 이게 이별인 거니</p>
+		<p class="pp" id="cp2">전화기 가득 찬 너와의 메시지만 한참 읽다 읽다</p>
+		<p class="pp" id="cp3">너의 목소리 마치 들린 것 같아 주위를 둘러보면</p>
+		<p class="pp" id="cp4">내 방엔 온통 너와의 추억투성이 이제야 눈물이</p>
+		<p class="pp" id="cp5">수고했어 사랑 고생했지 나의 사랑 우리 이별을 고민했던 밤</p>
+		<p class="pp" id="cp6">서로를 위한 이별이라고 사랑했단 너의 말을 믿을게</p>
+		<p class="pp" id="cp7">혹시 너무 궁금해 혹시 너무 그리우면 꼭 한 번만 보기로 해</p>
+		<button type="button" id="cl">clone</button>
+		<button type="button" id="clt">clonetrue</button>
+		<div id="result3"></div>
+	</div>
+</body>
+</html>
