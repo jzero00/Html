@@ -8,35 +8,38 @@
 <script>
 $(document).ready(function(){
 	$('#btn1').on('click', function() {
-	$("li.start").next().css({"color" : "red", "border" : "2px solid red"});
+	$(".box1 li.start").next().css({"color" : "red", "border" : "2px solid red"});
 		});
 	$('#btn2').on('click', function() {
-	$("li.start").nextAll().css({"color" : "blue", "border" : "2px solid black"});
+	$(".box1 li.start").nextAll().css({"color" : "blue", "border" : "2px solid black"});
 	});
 	$('#btn3').on('click', function() {
-		$("li.start").nextUntil().css({"color" : "green", "border" : "2px solid pink"});
+		$(".box1 li.start").nextUntil('.box1').css({"color" : "green", "border" : "2px solid pink"});
 	});
 	$('#btn4').on('click', function() {
-		$("li.start").offsetParent().css({"color" : "orange", "border" : "2px solid pink"});
+		$(".box2 li.start").parent().css({"color" : "pink", "border" : "2px solid black"});
 	});
 	$('#btn5').on('click', function() {
-		$("li.start").parent().css({"color" : "pink", "border" : "2px solid black"});
+		$(".box2 li.start").parents().css({"color" : "blue", "border" : "2px solid cyan"});
 	});
 	$('#btn6').on('click', function() {
-		$("li.start").parents().css({"color" : "blue", "border" : "2px solid cyan"});
+		$(".box2 li.start").parentsUntil('.box2').css({"color" : "black", "border" : "2px dotted black"});
 	});
 	$('#btn7').on('click', function() {
-		$("li.start").parentsUntil('.box').css({"color" : "black", "border" : "2px dotted black"});
+		$(".box3 li.start").prev().css({"color" : "orange", "border" : "2px solid pink"});
+	});
+	$('#btn8').on('click', function() {
+		$(".box3 li.start").prevAll().css({"color" : "black", "border" : "2px dotted black"});
+	});
+	$('#btn9').on('click', function() {
+		$(".box3 li.start").prevUntil('.box3').css({"color" : "green", "border" : "2px dotted red"});
 	});
 })
 </script>
 </head>
 <body>
-	<div class="box">
+	<div class="box1">
 		<h2></h2>
-		<pre>
-
-        </pre>
 		<div style="width: 500px;" class="siblings">
 			<ul> ul (parent)
 				<li>li (sibling)</li>
@@ -49,10 +52,39 @@ $(document).ready(function(){
 		<button type="button" id="btn1">next()</button>
 		<button type="button" id="btn2">nextAll()</button>
 		<button type="button" id="btn3">nextUntil()</button>
-		<button type="button" id="btn4">offsetParent()</button>
-		<button type="button" id="btn5">parent()</button>
-		<button type="button" id="btn6">parents()</button>
-		<button type="button" id="btn7">parentsUntil()</button>
+		<div id="result1"></div>
+	</div>
+	<div class="box2">
+		<h2></h2>
+		<div style="width: 500px;" class="siblings">
+			<ul> ul (parent)
+				<li>li (sibling)</li>
+				<li>li (sibling)</li>
+				<li class="start">li (sibling with class name "start")</li>
+				<li>li (the next sibling of li with class name "start")</li>
+				<li>li (sibling)</li>
+			</ul>
+		</div>
+		<button type="button" id="btn4">parent()</button>
+		<button type="button" id="btn5">parents()</button>
+		<button type="button" id="btn6">parentsUntil()</button>
+		<div id="result1"></div>
+	</div>
+	</div>
+	<div class="box3">
+		<h2></h2>
+		<div style="width: 500px;" class="siblings">
+			<ul> ul (parent)
+				<li>li (sibling)</li>
+				<li>li (sibling)</li>
+				<li class="start">li (sibling with class name "start")</li>
+				<li>li (the next sibling of li with class name "start")</li>
+				<li>li (sibling)</li>
+			</ul>
+		</div>
+		<button type="button" id="btn7">prev()</button>
+		<button type="button" id="btn8">prevAll()</button>
+		<button type="button" id="btn9">prevUntil()</button>
 		<div id="result1"></div>
 	</div>
 </body>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+    $(function () {
+        $('#btnTest').on('click', function () {
+            //상태값 가져오기
+            chk = $('#checkTest').prop('checked')
+            sel = $('#selTest option:eq(2)').prop('selected')
+            txt = $('#textText').prop('readonly')
+            but = $('#runBtn').prop('disabled')
+
+            //설정
+            $('#checkTest').prop('checked', !chk)
+            $('#selTest').prop('selected', !sel)
+            $('#textText').prop('readonly', !txt)
+            $('#runBtn').prop('disabled', !but)
+        })
+
+        $('#checkAll').on('change', function () {
+            //checkAll의 상태값 가져오기
+            chk = $(this).prop('checked')
+            //check의 상태값을 checkAll의 상태로 만들기
+            $('.check').prop('checked', chk)
+        })
+    })
+    </script>
+</head>
+
+<body>
+	<div class="box">
+		<h2></h2>
+		<pre>
+    실행버튼 클릭할 때마다 상태값을 반대로 변경
+    체크박스(checked)
+    select(selected)
+    text(readonly)
+    button(disabled)
+        </pre>
+		<form>
+			체크박스(라디오버튼) : <input type="checkbox" id="checkTest"  checked><br><br>
+			
+            <input type="checkbox" id="checkAll">전체선택<br>
+            <input type="checkbox" class="check"> 1번
+            <input type="checkbox" class="check"> 2번
+            <input type="checkbox" class="check"> 3번
+            <input type="checkbox" class="check"> 4번
+            <input type="checkbox" class="check"> 5번<br>
+            
+
+            리스트박스(select객체) : 
+            <select id="selTest">
+			<option value="1">하나</option>
+			<option value="2">둘</option>
+            <option value="3" selected >셋</option>
+            <option value="4">넷</option>
+			</select><br>
+            <br> text객체 (readonly) : 
+            <input type="text" value="가나다" id="txtTest"><br>
+            <br> button객체(disabled) : 
+            <input type="button" value="연습용" id="btnTest"><br>
+			<br> <input type="button" value="실행" id="runBtn">
+		</form>
+	</div>
+</body>
+
+</html>

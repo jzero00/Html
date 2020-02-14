@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+	$(function() {
+		$('#content').on('click', function() {
+			$('#d1').contents('span').css('border', '1px solid blue');
+		})
+		$('#children').on('click', function() {
+			$('#d1').children('span').css('border', '1px solid blue');
+		})
+		$('#find').on('click', function() {
+			$('#d1').find('span').css('border', '1px solid blue');
+		})
+	})
+</script>
+<style>
+.siblings * {
+	display: block;
+	border: 2px solid lightcoral;
+	color: darkblue;
+	padding: 5px;
+	margin: 15px;
+}
+</style>
+</head>
+<body>
+	<div class="box">
+		<h2>자식/후손검색</h2>
+		<pre>
+    .contents() : 자식을 검색, 후손은 검색 안됨
+    .children   : 자식을 검색, 후손은 검색 안됨
+    .find()     : 자식과 후손을 검색
+
+    $('d1').contents('ul')
+    $('d1').children('ul')
+    $('d1').find('ul'), $('#d1').find('span')
+        </pre>
+		<div id="d1" style="width: 500px;" , class='siblings'>
+			div (grand) (great-grandparents)
+			<ul>
+				grand parent
+				<li>parent <span>span</span>
+				</li>
+			</ul>
+		</div>
+		<button type="button" id="content">실행</button>
+		<button type="button" id="children">실행</button>
+		<button type="button" id="find">실행</button>
+	</div>
+</body>
+</html>

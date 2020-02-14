@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="../css/myStyle.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+    $(function () {
+        $('#btn1').on('click', function(){
+		 
+		 //$('img').attr('title', '이미지');
+		 
+		 $('img').attr('title', function(){
+			 //src속성값을 가져온다
+             str =   $(this).attr('src');
+			 
+			 //  마지막 / 와 . 의 위치(인덱스)를 얻는다 
+			 start = str.lastIndexOf("/");
+			 end = str.lastIndexOf(".");
+			 
+			 //두인덱스 사이의 값을 추출한다 
+			  tit =  str.substring(start+1, end);
+			 
+			 //추출한 값을 리턴한다
+			 return tit;
+		 })
+	 })
+    })
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h2></h2>
+        <pre>
+
+        </pre>
+    <img src="../images/1.jpg">
+    <img src="../images/tazza.gif">
+    <img src="../images/tazza.gif">
+    <img src="../images/tazza.gif">
+        <button type="button">실행</button>
+        <div id="result1"></div>
+    </div>
+</body>
+
+</html>
