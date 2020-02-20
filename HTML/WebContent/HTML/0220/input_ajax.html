@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/myStyle.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+	$(function() {
+		$('#get').on('click', function () {
+		 inname = $('#name').val()
+		 inage = $('#age').val()
+		 indata = "name=" + inname + "&age=" + inage;
+		
+		 $('#post').on('click', function () {
+		 $.get('../0219/formtest.jsp',
+		 { "name" : inname, "age" : inage },
+		 function (res) {
+		 $('#result1').html(res);
+		 },
+		 'text'
+		 )
+		 })
+		 /* $.ajax({
+		 url : '../0219/formtest.jsp',
+		 type : 'get',
+		 data : { "name" : inname, "age" : inage },
+		 success : function (res) {
+		 $('#result1').html(res);
+		 },
+		 error : function(xhr){
+
+		 },
+		 dataType : 'text'
+		 }) */
+		 })
+		
+		 $('#post').on('click', function () {
+		 inname = $('#name').val()
+		 inage = $('#age').val()
+		 indata = "name=" + inname + "&age=" + inage;
+		 $.ajax({
+		 url : '../0219/formtest.jsp',
+		 type : 'post',
+		 data : { "name" : inname, "age" : inage },
+		 success : function (res) {
+		 $('#result1').html(res);
+		 },
+		 error : function(xhr){
+
+		 },
+		 dataType : 'text'
+		 })
+		 })
+
+		$('#post').on('click', function() {
+			$.post()
+		})
+
+	})
+</script>
+</head>
+<body>
+	<div class="box">
+		<h2></h2>
+		<pre>
+
+        </pre>
+		<form id="ff">
+			이름 : <input name="name" id="name"><br> 나이 : <input
+				name="age" id="age"> <br> <br>
+			<button id="get" type="button">비동기실행get</button>
+			<button id="post" type="button">비동기실행post</button>
+		</form>
+		<div id="result1"></div>
+		<br>
+		<hr>
+		<form id="ff2">
+			이름 : <input name="name" id="name2"><br> 나이 : <input
+				name="age" id="age2"> <br> <br>
+			<button id="syncget" type="button">동기실행get</button>
+			<button id="syncpost" type="button">동기실행post</button>
+		</form>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>
