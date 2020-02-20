@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="../css/myStyle.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function(){ 
+         $('img').on('dblclick', function(){
+             $(this).hide();
+             
+           //if(보이는 h1이 없느냐?)
+            if( $('img:visible').length == 0 ){
+               // $('#btn1').css('display', 'block');
+                $('button').show();
+            }
+          })
+         
+          $('button').on('click', function(){
+                $('img').show();
+                $(this).hide();
+                
+          })
+          
+          //원래이미지로 temp속성을 설정 하는 부분
+          $('img').attr('temp', function(){
+             
+              aa = $(this).attr('src');
+              return aa;
+          })
+          
+           $('img').hover(function(){
+              //mouseover
+              //src의 값을 가져와서 temp변수에 저장 
+              //temp = $(this).attr('src');
+              
+              //src2의 값을 가져온다 
+              temp2 =$(this).attr('src2');
+              
+              //src의 값을 src2의 값으로 변경한다
+              $(this).attr('src',temp2);
+              
+           },function(){
+             //mouseout 
+              //temp의 변수 값을 src의 값으로 변경한다
+              // $(this).attr('src',temp);
+              //----------------------------
+              //temp속성을 설정했을때
+              //temp의 속성 값(원래 이미지)을 가져온다 
+              temp = $(this).attr('temp');
+              
+              //src의 속성값을  temp로 바꾼다 
+              $(this).attr('src',temp);
+          }) 
+            
+        })
+       </script>
+    <style>
+        button{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2></h2>
+        <pre>
+
+        </pre>
+        <img src="../images/1.jpg" src2="../images/mrbeaneat.jpg">
+        <img src="../images/mrbeaneat.jpg" src2="../images/225C6C3E53FB5AAA17.jpg">
+        <img src="../images/225C6C3E53FB5AAA17.jpg" src2="../images/mrbeaneat.jpg">
+        <button type="button" id="btn1">보이기</button>
+        <div id="result1"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="../css/myStyle.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+    $(function () {
+$('#run').on('click', function () {
+    $(this).hide()
+    $('img').css('border', 'none')
+
+    a = setInterval(function () {
+        $('img:first').appendTo('#result1')
+    }, 500)
+        // child = parent.firstChild
+        // parent.removeChild(child)
+        // parent.appendChild(child)
+    $('#stop').on('click', function () {
+        clearInterval(a)
+        rand = Math.floor(Math.random() * $('img').length)
+        $('img:eq(' + rand + ')').css('border', '5px double red')
+        $('#run').show()
+
+    })
+})
+    })
+    </script>
+    <style>
+        img{
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2></h2>
+        <pre>
+
+        </pre>
+
+        <button type="button">실행</button>
+        <div id="result1">
+            <img src="../images/서현진.jpg">
+            <img src="../images/컴퓨터1.jpg">
+            <img src="../images/com.jpg">
+            <img src="../images/gin.jpg">
+        </div>
+        <button type="button" id="run">실행</button>
+        <button type="button" id="stop">멈춤</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="../css/myStyle.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+    $(function () {
+        $('#show').on('click', function () {
+            $('img').show(500, 'swing', function name(params) {
+            alert('아유.... 하기 싫어...')
+            })
+        })
+        $('#hide').on('click', function () {
+            $('img').hide(500, 'linear', function () {
+                alert('아유.... 하기 싫어...')
+            })   
+        })
+        $('#toggle').on('click', function () {
+            $('img').toggle(3000)  
+        })
+        /////////////////////
+        $('#sup').on('click', function () {
+            $('img').slideUp()  
+        })
+        $('#sdown').on('click', function () {
+            $('img').slideDown() 
+        })
+        $('#stog').on('click', function () {
+            $('img').slideToggle() 
+        })
+        /////////////////////
+        $('#fin').on('click', function () {
+            $('img').fadeIn() 
+        })
+        $('#fout').on('click', function () {
+            $('img').fadeOut() 
+        })
+        $('#fto').on('click', function () {
+            $('img').fadeTo(1000, 0.5)             
+        })
+        $('#ftog').on('click', function () {
+            $('img').fadeToggle()             
+        })
+    })
+    </script>
+    <style>
+#result1{
+        height: 400px;
+    }
+    </style>
+</head>
+    
+<body>
+    <div class="box">
+        <h2>effect효과</h2>
+        <pre>
+    $(selector)
+        </pre>
+
+        <button id="show" type="button">show</button>
+        <button id="hide" type="button">hide</button>
+        <button id="toggle" type="button">toggle</button>
+        <button id="sup" type="button">slideUp</button>
+        <button id="sdown" type="button">slideDown</button>
+        <button id="stog" type="button">slideToggle</button>
+        <button id="fin" type="button">fadeIn</button>
+        <button id="fout" type="button">fadeOut</button>
+        <button id="fto" type="button">fadeTo</button>
+        <button id="ftog" type="button">fadeToggle</button>
+        <div id="result1">
+            <img src="../images/3110380ed79599c5f4dc1ad5f0f22be1.jpg">
+        </div>
+    </div>
+</body>
+
+</html>

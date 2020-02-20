@@ -20,6 +20,14 @@
 			str += "직업 : " + $('#work').val();			
 		$('#result1').html(str);
 		})
+
+		$('#btnchange').on('click', function () {
+			event.preventDefault();
+			//이름 입력
+			name = prompt("이름 입력")
+			//id = user인 input요소의 값으로 설정한다.
+			$('#user').val(name);
+		})
 	})
 </script>
 </head>
