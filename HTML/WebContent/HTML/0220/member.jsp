@@ -24,12 +24,9 @@
 			out.print(",");
 		//java 끝 json 시작
 %>
-{ 	"name" : "<%=vo.getMem_name()%>",
-	"tel" : "<%=vo.getMem_hp()%>",
-	"addr" : "<%=vo.getMem_add1()%><%=vo.getMem_add2()%>",
-	"id" : "<%=vo.getMem_id()%>",
-	"mail" : "<%=vo.getMem_mail()%>"
-}
+{ "name" : "<%=vo.getMem_name()%>", "tel" : "<%=vo.getMem_hp()%>",
+"addr" : "<%=vo.getMem_add1()%><%=vo.getMem_add2()%>", "id" : "<%=vo.getMem_id()%>",
+"mail" : "<%=vo.getMem_mail()%>" }
 <%
 	}
 %>
