@@ -15,7 +15,10 @@ public class MemberVO {
 	private String mem_add2;	//주소
 	private String mem_mail;	//이메일주소
 	private String mem_hp;		//주소
-
+	private String mem_pass;
+	private String mem_zip;
+	private String mem_bir;
+	
 	public String getMem_id() {
 		return mem_id;
 	}
@@ -51,6 +54,24 @@ public class MemberVO {
 	}
 	public void setMem_hp(String mem_hp) {
 		this.mem_hp = mem_hp;
+	}
+	public String getMem_pass() {
+		return mem_pass;
+	}
+	public void setMem_pass(String mem_pass) {
+		this.mem_pass = mem_pass;
+	}
+	public String getMem_zip() {
+		return mem_zip;
+	}
+	public void setMem_zip(String mem_zip) {
+		this.mem_zip = mem_zip;
+	}
+	public String getMem_bir() {
+		return mem_bir;
+	}
+	public void setMem_bir(String mem_bir) {
+		this.mem_bir = mem_bir;
 	}
 
 }

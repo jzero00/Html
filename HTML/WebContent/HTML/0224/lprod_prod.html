@@ -2,17 +2,98 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <link rel="stylesheet" href="../css/myStyle.css">
-    <script src="../js/jquery-3.4.1.min.js"></script>
-    <script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+
+<link rel="stylesheet" href="../css/myStyle.css">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
     $(function () {
 		$('#btn1').on('click', function() {
 			$.ajax({
 				url : '/jqpro/LprodList',
 				success : function(res) {
 					code = "";
+					$.each(res, function(i) {
+						code += "<option value='" + res[i].gu + "'>" + res[i].nm + "</option>"
+					})
+					$('#lprod').html(code);
+				},
+				error : function(xhr) {
+					alert("상태 : " + xhr.status)
+				},
+				dataType : 'json'
+			})
+		})
+		
+		$('#lprod').on('change', function() {
+			
+			lprod_gu = $('option:selected', this).val()
+		
+			$.ajax({
+				url : '/jqpro/p.do',
+				type : 'get',
+				//서블릿의 getParameter와 같아야 함
+				data : {'lprod_gu' : lprod_gu},
+				success : function(res) {
+					if(res.sw == "ok"){
+						code = "";
+						$.each(res.data, function(i) {
+							code += "<option value='" + res.data[i].id + "'>" + res.data[i].name + "</option>"
+						})
+					} else if (res.sw == "no"){
+						code = "<option value='0'>데이터없음</option>"
+						$('#result2').empty();
+					}
+					$('#prod').html(code);
+//-----------------------------------------------------------------------
+/* 					code = "";
+					$.each(res, function(i) {
+						code += "<option value='" + res[i].id + "'>" + res[i].name + "</option>"
+					})
+					$('#prod').html(code); */
+//-----------------------------------------------------------------------
+
+				},
+				error : function(xhr) {
+					alert("상태 : " + xhr.status)
+					//여기서 200에러가 뜨면 응답은 성공이나 json형식이 잘못되었단 의미
+				},
+				dataType : 'json'
+			})
+			
+		})
+		$('#prod').on('change', function () {
+			prod_id = $('option:selected', this).val()
+			console.log(prod_id);
+			if(prod_id == null) return false;
+			$.ajax({
+				url : '/jqpro/p.do',
+				type : 'post',
+				data : {'prod_id' : prod_id},
+// 				data : "prod_id=" + prod_id,
+				success : function(res) {
+					
+					code = "<table class='table'><thead class='thead-dark'>"
+					code += "<tr><td>항목</td><td>내용</td>"
+					code += "<tr><td>PROD_BUYER</td><td>" + res.buyer + "</td></tr>"
+					code += "<tr><td>prod_color</td><td>" + res.color + "</td></tr>"
+					code += "<tr><td>prod_cost</td><td>" + res.cost + "</td></tr>"
+					code += "<tr><td>prod_delivery</td><td>" + res.delivery + "</td></tr>"
+					code += "<tr><td>prod_detail</td><td>" + res.detail + "</td></tr>"
+					code += "<tr><td>prod_img</td><td>" + res.img + "</td></tr>"
+					code += "<tr><td>prod_outline</td><td>" + res.outline + "</td></tr>"
+					code += "<tr><td>prod_price</td><td>" + res.price + "</td></tr>"
+										
+					code += "</tbody></table>"
+						$('#result2').html(code);
 				},
 				error : function(xhr) {
 					alert("상태 : " + xhr.status)
@@ -25,24 +106,28 @@
 </head>
 
 <body>
-    <div class="box">
-        <h2></h2>
-        <pre>
 
-        </pre>
+<div class="container-fluid">
+  <h2>제품 분류에 따른 상품 목록 및 상세 정보</h2>
+		<button type="button" id="btn1">실행</button>
+		  <form action="/action_page.php">
+    <div class="form-group">
+      <label for="lprod">Select list (select one):</label>
+      <select class="form-control" id="lprod" name="lprod">
 
-        <button type="button" id="btn1">실행</button>
-        <div id="result1">
-        <select id="lprod">
-        
-        </select>
-        
-        <select id="prod">
-        
-        </select>
-        </div>
-        <div id="result2"></div>
+      </select>
+      <br>
+
+      <label for="lprod">Select list (select one):</label>
+      <select class="form-control" id="prod" name="prod">
+
+      </select>
     </div>
+  </form>
+</div>
+		<div class="container-fluid" id="result2"></div>
+	
+	
 </body>
 
 </html>
