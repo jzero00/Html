@@ -8,9 +8,9 @@ import kr.or.ddit.member.vo.ZipVO;
 
 public interface IMemberService {
 
-	public String idCheck(String id) throws SQLException;
+	public String idCheck(String id);
 	
-	public List<ZipVO> serachDong(String dong) throws SQLException;
+	public List<ZipVO> serachDong(String dong);
 	
-	public String insertMember(MemberVO vo) throws SQLException;
+	public String insertMember(MemberVO vo);
 }

@@ -26,6 +26,7 @@ public class MemberDaoImpl implements IMemberDao{
 	@Override
 	public String idCheck(String id) throws SQLException {
 
+		//id값이 파라미터라 쿼리 실행할때도 파라미터 값을 입력한다.
 		return (String) client.queryForObject("member.idCheck", id);
 	}
 

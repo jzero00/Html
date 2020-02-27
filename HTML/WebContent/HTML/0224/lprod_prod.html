@@ -25,6 +25,7 @@
 						code += "<option value='" + res[i].gu + "'>" + res[i].nm + "</option>"
 					})
 					$('#lprod').html(code);
+					$('#lprod').trigger('change')
 				},
 				error : function(xhr) {
 					alert("상태 : " + xhr.status)
@@ -48,11 +49,14 @@
 						$.each(res.data, function(i) {
 							code += "<option value='" + res.data[i].id + "'>" + res.data[i].name + "</option>"
 						})
+						$('#prod').html(code);
+						$('#prod').trigger('change')
 					} else if (res.sw == "no"){
 						code = "<option value='0'>데이터없음</option>"
 						$('#result2').empty();
 					}
 					$('#prod').html(code);
+					
 //-----------------------------------------------------------------------
 /* 					code = "";
 					$.each(res, function(i) {

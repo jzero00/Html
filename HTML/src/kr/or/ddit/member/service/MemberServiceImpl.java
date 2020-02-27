@@ -23,27 +23,42 @@ public class MemberServiceImpl implements IMemberService {
 	}
 	
 	@Override
-	public String idCheck(String id) throws SQLException {
+	public String idCheck(String id){
 		
-		String idchk = dao.idCheck(id);
-		
+		String idchk = null;
+		try {
+			idchk = dao.idCheck(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return idchk;
 	}
 
 	@Override
-	public List<ZipVO> serachDong(String dong) throws SQLException {
+	public List<ZipVO> serachDong(String dong){
 		
 		List<ZipVO> list = null;
 		
-		list = dao.serachDong(dong);
+		try {
+			list = dao.serachDong(dong);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return list;
 	}
 
 	@Override
-	public String insertMember(MemberVO vo) throws SQLException {
+	public String insertMember(MemberVO vo) {
 		
-		String name = dao.insertMember(vo);
+		String name = null;
+		try {
+			name = dao.insertMember(vo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return name;
 	}

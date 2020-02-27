@@ -8,56 +8,94 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  *{
+  margin: 5px;
+  }
+  </style>
+  <script>
+  $(function(){
+	//아이디 중복검사
+	$('#btnid').on('click', function() {
+		idvalue = $('#id').val();
+		$.ajax({
+			url : '/jqpro/IdCheck',
+			type : 'get',
+			data : {'id' : idvalue},
+			success : function(res) {
+				$('#idchk').html(res.sw).css('color', 'red')
+			},
+			error : function(xhr) {
+				alert("상태 : " + xhr.status)
+			},
+			dataType : 'json'
+		})
+	})
+	//우편번호 검색
+	$('#zipBtn').on('click', function() {
+		window.open("zip.html", "_blank", "width=400 height=500")
+	})
+	
+	//제출
+	$('#btnjoin').on('click', function() {
+		console.log($('#ff').serialize())
+	})
+  })
+  </script>
 </head>
 <body>
+<form class="form-horiaontal" id="ff" name="ff">
 
 <div class="container">
   <h2>Sign Up</h2>
-  <form action="/action_page.php">
     <div class="form-group">
       <label for="id">ID</label>
-      <input type="text" class="form-control" id="email" placeholder="Enter ID" name="id"> <button class="btn btn-primary">id check</button>
+      <input type="text" class="form-control" id="id" placeholder="Enter ID" name="mem_id">
+      <button class="btn btn-primary" id="btnid" type="button">id check</button>
+      <span id="idchk"></span>
     </div>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="mem_name">
     </div>
     <div class="form-group">
       <label for="birth">Birth</label>
-      <input type="date" class="form-control" id="birth" name="birth">
+      <input type="date" class="form-control" id="birth" name="mem_birth">
     </div>
     <div class="form-group">
       <label for="psw">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="mem_password">
     </div>
     <div class="form-group">
       <label for="phone number">Phone Number</label>
-      <input type="tel" class="form-control" id="phone number" placeholder="Enter phone number" name="email">
+      <input type="tel" class="form-control" id="phone number" placeholder="Enter phone number" name="mem_hp">
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="mem_mail">
     </div>
     <div class="form-group">
       <label for="zipcode">Zip code</label>
-      <input type="number" class="form-control" id="zipcode" name="zipcode"> <button class="btn btn-primary">zipcode search</button>
+      <button class="btn btn-primary" type="button" id="zipBtn">zipcode search</button><input type="text" class="form-control" id="zipcode" name="mem_zip"> 
     </div>
     <div class="form-group">
-      <label for="add">Add1</label>
-      <input type="text" class="form-control" id="add1" name="add1">
+      <label for="add">Address</label>
+      <input type="text" class="form-control" id="add1" name="mem_add1">
     </div>
     <div class="form-group">
-      <label for="add">Add2</label>
-      <input type="text" class="form-control" id="add2" name="add2">
+      <label for="add">Address2</label>
+      <input type="text" class="form-control" id="add2" name="mem_add2">
     </div>
     <div class="form-group form-check">
       <label class="form-check-label">
         <input class="form-check-input" type="checkbox" name="remember"> Remember me
       </label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
+    <button type="button" class="btn btn-primary" id="btnjoin">Submit</button>
+    <span id="joinres"></span>
+    <input id="reset" type="reset" class="btn btn-primary" value="초기화">
 
+</div>
+</form>
 </body>
 </html>
