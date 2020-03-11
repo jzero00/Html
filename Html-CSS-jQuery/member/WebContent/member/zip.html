@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>zipcode search</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <style>    
+    tr:hover{
+    background: yellow;
+    }
+    </style>
+    <script>
+    $(function () {
+		$('#dongbtn').on('click', function() {
+			
+			dongvalue = $('#dong').val().trim()
+			
+			$.ajax({
+				url : '/member/Zipcode',
+				type : 'post',
+				data : {'dong' : dongvalue},
+				dataType : 'json',
+				success : function(res){
+					code = "<table>";
+					code += "<tr><td>우편번호</td><td>주소</td>"
+					code += "<td>번지</td></tr>"
+					$.each(res, function(i) {
+					code += "<tr><td>" + res[i].zip + "</td>"
+					code += "<td>" + res[i].addr + "</td>"
+					code += "<td>" + res[i].bunji + "</td></tr>"
+					})
+					code += "</table>";
+					
+					$('#result1').html(code);
+					
+				},
+				error : function(xhr) {
+					alert("상태 : " + xhr.status)
+				}
+			})
+		})
+		$('#result1').on('click', 'tr', function() {
+			//결과에서 하나의 행을 선택하면 행의 우편번호와 주소값을 가져온다.
+			zipcode = $('td:eq(0)', this).text()
+			addr = $('td:eq(1)', this).text()
+			
+			//부모창에 전달하여 출력하기
+			$('#zipcode', opener.document).val(zipcode);
+			$('#add1', opener.document).val(addr);			
+			
+			$('#dong').val("");
+			$('#result1').empty();
+			
+			window.close();
+		})
+    })
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h2>우편번호 찾기</h2>
+		동입력<input type="text" id="dong">
+        <button type="button" id="dongbtn">검색</button>
+        <div id="result1"></div>
+    </div>
+</body>
+
+</html>

@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="../js/member.js"></script>
   <style type="text/css">
   *{
   margin: 5px;
@@ -18,6 +19,25 @@
 	//아이디 중복검사
 	$('#btnid').on('click', function() {
 		idvalue = $('#id').val();
+		//공백체크
+		idlen = idvalue.length;
+		if (idlen <= 0) {
+			alert("아이디를 입력하세요");
+			return false;
+		}
+		//길이체크
+		if(idlen < 4 || idlen > 8){
+			alert("id는 4~8사이로 입력해주세요")
+			return false;
+		}
+		//형식체크
+		idreg = /^[a-zA-z]+[a-zA-z0-9]*$/
+		if(!(idreg.test(idvalue))){
+			alert("id형식오류입니다.");
+			return false;
+		}
+		
+		console.log(idvalue);
 		$.ajax({
 			url : '/jqpro/IdCheck',
 			type : 'get',
@@ -39,6 +59,27 @@
 	//제출
 	$('#btnjoin').on('click', function() {
 		console.log($('#ff').serialize())
+		console.log($('#ff').serializeArray())
+		
+		//입력데이터의 공백이나 형식체크
+		//올바른 데이터일경우는 서버로 전송
+		if(!regcheck()){
+			return false;
+		}
+// 		alert("성공");
+		$.ajax({
+			url : '/jqpro/MemberJoin',
+			type : 'post',
+			data : $('#ff').serialize(),
+			success : function(res){
+				$('#joinres').html(res.sw).css('color', 'red')
+				$('#reset').hide()
+			},
+			error : function(xhr){
+				alert("상태 : " + xhr.status)
+			},
+			dataType : 'json'
+		})
 	})
   })
   </script>
@@ -60,15 +101,15 @@
     </div>
     <div class="form-group">
       <label for="birth">Birth</label>
-      <input type="date" class="form-control" id="birth" name="mem_birth">
+      <input type="date" class="form-control" id="bir" name="mem_bir">
     </div>
     <div class="form-group">
       <label for="psw">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password" name="mem_password">
+      <input type="password" class="form-control" id="pass" placeholder="Enter password" name="mem_pass">
     </div>
     <div class="form-group">
       <label for="phone number">Phone Number</label>
-      <input type="tel" class="form-control" id="phone number" placeholder="Enter phone number" name="mem_hp">
+      <input type="tel" class="form-control" id="phonenumber" placeholder="Enter phone number" name="mem_hp">
     </div>
     <div class="form-group">
       <label for="email">Email</label>
