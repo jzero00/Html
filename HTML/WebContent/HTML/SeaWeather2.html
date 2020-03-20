@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Kakao 지도 시작하기</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f90d36941474a8deb5b148b9368e916a"></script>
+<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 1
+		};
+		
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
+		
+		var map = new kakao.maps.Map(container, options);
+		
+		//반복문 시작
+		
+// 		//부산 해양 날씨 json url
+		
+	$.getJSON("http://210.217.120.70:8001/openWeatherNow.do?serviceKey=C16047C2-DDF5-4E02-94F9-A8566EA1C468&resultType=json&mmaf=101&mmsi=994401588,220681654,994401584,994401579,220681671,220681651,220681668,994401583,994401597,994401587,994401578,22460,22459,22454,994401594", function(data) {
+				var info = "<ul>";
+				$.each(data, function(i, v) {
+					info += "<li>" + v["result"]["recordset"][i]["MMSI_NM"] + "</li>";
+				});
+				info += "</ul>";
+				
+	});
+		
+// 		// 마커가 표시될 위치입니다 
+// 		var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+
+// 		// 마커를 생성합니다
+// 		var marker = new kakao.maps.Marker({
+// 		    position: markerPosition
+// 		});
+
+
+	</script>
+</head>
+<body>
+	<div id="map" style="width: 500px; height: 400px;"></div>
+</body>
+</html>

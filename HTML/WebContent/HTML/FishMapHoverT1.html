@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>해양 낚시 지도</title>
+    <style>
+    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+</style>
+</head>
+<body>
+<div id="map" style="width:900px;height:1000px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f90d36941474a8deb5b148b9368e916a"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(36.325275, 127.420188), // 지도의 중심좌표 //ddit
+        level: 12 // 지도의 확대 레벨
+    };
+
+// var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+
+
+// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+var positions = [
+    {
+        content: '<div class="wrap">' + 
+            '    <div class="info">' + 
+            '        <div class="title">' + 
+            '            광어' + 
+            '            <div class="close" onclick="closeOverlay(0)" title="닫기"></div>' + 
+            '        </div>' + 
+            '        <div class="body">' + 
+            '            <div class="img">' +
+            '                <img src="/jqpro/fish/guang.jpg" width="100" height="70">' +
+            '           </div>' + 
+            '            <div class="desc">' + 
+            '                <div class="ellipsis">가자미목 넙칫과에 속하는 </div>' + 
+            '                <div class="ellipsis">바다 어류의 일종</div>' + 
+            '            </div>' + 
+            '        </div>' + 
+            '    </div>' +    
+            '</div>',
+        latlng: new kakao.maps.LatLng(36.6126146453066, 126.313230014042)	//태안
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            감성돔' + 
+        '            <div class="close" onclick="closeOverlay(1)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/wooluck.gif" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">농어목 도미과에 속한다</div>' + 
+        '                <div class="ellipsis">바다낚시 하면 감성돔! 메이저급</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>',
+        latlng: new kakao.maps.LatLng(35.970666, 126.616999)	//군산
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            우럭' + 
+        '            <div class="close" onclick="closeOverlay(2)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/wooluck.gif" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">5월 / 암갈색을 띤 바다 물고기로</div>' + 
+        '                <div class="ellipsis">볼락의 일종이다</div>' + 
+        '                <div class="ellipsis">우럭은 광어와 함께 횟감으로 애용</div>' +
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(34.781676, 126.383266)	//목포항
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            볼락' + 
+        '            <div class="close" onclick="closeOverlay(3)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="http://www.bris.go.kr/usr/utl/getImageWrite.do?iwUrl=http://www.bris.go.kr/life/images/2011/11/11/Sebastes inermis.jpg&iwWidth=200&iwHeight=143&iwKey=15413703780MF0008770_1" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">4-5월/한국인의 대표 횟감</div>' + 
+        '                <div class="ellipsis">겨울철 바다낚시(루어)어종</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(34.839768, 128.420165)	//통영
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            감성돔' + 
+        '            <div class="close" onclick="closeOverlay(4)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/dom1.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">농어목 도미과에 속하는 감성돔</div>' + 
+        '                <div class="ellipsis">바다낚시 하면 감성돔! 메이저급</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(36.359063, 129.390908)	//영덕항
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            참돔' + 
+        '            <div class="close" onclick="closeOverlay(5)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/chamdom.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">농어목 도미과의 생선중 하나</div>' + 
+        '                <div class="ellipsis">특히 남해,제주 바다에서 많이 잡힘</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(33.486955, 126.392691)	//가문동 포구//제주도 애월읍
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            벤자리' + 
+        '            <div class="close" onclick="closeOverlay(6)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/benjari.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">여름철 제주도에서 귀한 어종</div>' + 
+        '                <div class="ellipsis">따뜻한 수온에 서식 아열대성</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(33.467121, 126.337793)	//가문동 포구 //제주도 애월읍 고내리 1117-3
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            방어' + 
+        '            <div class="close" onclick="closeOverlay(7)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/bang.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">매년 겨울철 제주도 최고의 횟감</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(33.484384, 126.377442)	//귀덕2리 포구 //제주도 한림읍 귀덕리 4107-2
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            부시리' + 
+        '            <div class="close" onclick="closeOverlay(8)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/busiri.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">겨울철 제주도 바다낚시 주 대상어</div>' + 
+        '                <div class="ellipsis">늦여름 ~ 가을이 제철 / 지방이 많고 </div>' + 
+        '                <div class="ellipsis">고소한맛이 좋아 고급횟감이다</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(33.507939, 126.466578)	//도두항 //제주도 도두1동 2605-8
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            광어' + 
+        '            <div class="close" onclick="closeOverlay(9)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/guang.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">가자미목 넙칫과에 속하는 </div>' + 
+        '                <div class="ellipsis">바다 어류의 일종</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(33.558614, 126.736634)	//김녕항 //제주시 구좌읍 김녕리 4074-2
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            다금바리' + 
+        '            <div class="close" onclick="closeOverlay(10)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/dagumbari.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">따뜻한 바다의 수온을 좋아하는</div>' + 
+        '                <div class="ellipsis">제주도 특산물 다금바리</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(33.231477, 126.315041)	//제주특별자치도 서귀포시 안덕면 사계리
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            돌돔' + 
+        '            <div class="close" onclick="closeOverlay(11)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/doldom.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">살이 단단하고 회,소금구이,매운탕</div>' + 
+        '                <div class="ellipsis">으로 최고급</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(33.239214, 126.559160)	//제주특별자치도 서귀포시 천지동 707-6
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            벵에돔' + 
+        '            <div class="close" onclick="closeOverlay(12)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/bengdom.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">제주도 대표 낚시어종</div>' + 
+        '                <div class="ellipsis">제주도에서는 대표적 회로 유명함</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(33.469947, 126.929462)	//제주특별자치도 서귀포시 성산읍 성산리 361-4
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            참돔' + 
+        '            <div class="close" onclick="closeOverlay(13)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/chamdom.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">농어목 도미과 /</div>' + 
+        '                <div class="ellipsis">별칭 : 바다의 미녀</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(34.382146, 126.305184)	//전라남도 진도군 의신면 금갑리 649-51
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            벤자리' + 
+        '            <div class="close" onclick="closeOverlay(14)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/benjari.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">농어목 하스돔과 난류성 물고기</div>' + 
+        '                <div class="ellipsis">난류가 강한 경남 홍도,</div>' + 
+        '                <div class="ellipsis">여서도 등지에 여름철에 나타남</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(34.714878, 128.628076)	//경상남도 거제시 남부면 다포리 10
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            숭어' + 
+        '            <div class="close" onclick="closeOverlay(15)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/sunge.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">숭어과의 바닷물고기</div>' + 
+        '                <div class="ellipsis">활발히 입질하는 시기 5~10월</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(37.254804, 126.498471)	//인천광역시 옹진군 영흥면 내리 8-167
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            부시리' + 
+        '            <div class="close" onclick="closeOverlay(16)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/busiri.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">최대길이가 2m가 넘는 부시리</div>' + 
+        '                <div class="ellipsis">낚는데 엄청난 힘이 들고 어려움</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(36.440499, 126.522056)	//충청남도 보령시 오천면 소성리 691-50
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            임연수어' + 
+        '            <div class="close" onclick="closeOverlay(17)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/imyunsu.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">몸길이는 45~50cm 가량</div>' + 
+        '                <div class="ellipsis">겨울철 먼동해바다에서 연안으로옴</div>' + 
+        '                <div class="ellipsis">방파제 부근에 많이 출몰한다</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(38.201127, 128.582553)	//강원도 속초시 교동 767-224
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            숭어' + 
+        '            <div class="close" onclick="closeOverlay(18)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/sunge.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">숭어과의 바닷물고기</div>' + 
+        '                <div class="ellipsis">활발히 입질하는 시기 5~10월</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(37.779227, 128.917465)	//강원도 강릉시 포남2동 강릉대로 521
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            우럭' + 
+        '            <div class="close" onclick="closeOverlay(19)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/wooluck.gif" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">5월 / 암갈색을 띤 바다 물고기로</div>' + 
+        '                <div class="ellipsis">볼락의 일종이다</div>' + 
+        '                <div class="ellipsis">우럭은 광어와 함께 횟감으로 애용</div>' +
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(37.522344, 129.120703)	//강원도 동해시 천곡동 958-8
+    },
+    {
+        content: '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title">' + 
+        '            학꽁치' + 
+        '            <div class="close" onclick="closeOverlay(20)" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="/jqpro/fish/hakggongchi.jpg" width="100" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis">동갈치목 학공치과의 바닷 물고기</div>' + 
+        '                <div class="ellipsis">주된 어획지는 남해안과 동해남부</div>' + 
+        '                <div class="ellipsis">12~3월 겨울이 제철 릴/찌낚시 어종</div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>', 
+        latlng: new kakao.maps.LatLng(36.022243, 129.375084)	//경상북도 포항시 남구 해도동 29-8
+    }
+];
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+var marker = new Array();
+var overlay = new Array();
+
+for (var i = 0; i < positions.length; i ++) {
+
+	marker[i] = new kakao.maps.Marker({
+	    map: map, 
+	    position: positions[i].latlng
+	});
+	
+	overlay[i] = new kakao.maps.CustomOverlay({
+	    content: positions[i].content,
+	    map: map,
+	    position: marker[i].getPosition()
+	});
+	
+	closeOverlay(i);
+}
+
+function closeOverlay(num) {
+    overlay[num].setMap(null);     
+}
+
+kakao.maps.event.addListener(marker[0], 'click', function() {
+    overlay[0].setMap(map);
+});
+kakao.maps.event.addListener(marker[1], 'click', function() {
+    overlay[1].setMap(map);
+});
+kakao.maps.event.addListener(marker[2], 'click', function() {
+    overlay[2].setMap(map);
+});
+kakao.maps.event.addListener(marker[3], 'click', function() {
+    overlay[3].setMap(map);
+});
+kakao.maps.event.addListener(marker[4], 'click', function() {
+    overlay[4].setMap(map);
+});
+kakao.maps.event.addListener(marker[5], 'click', function() {
+    overlay[5].setMap(map);
+});
+kakao.maps.event.addListener(marker[6], 'click', function() {
+    overlay[6].setMap(map);
+});
+kakao.maps.event.addListener(marker[7], 'click', function() {
+    overlay[7].setMap(map);
+});
+kakao.maps.event.addListener(marker[8], 'click', function() {
+    overlay[8].setMap(map);
+});
+kakao.maps.event.addListener(marker[9], 'click', function() {
+    overlay[9].setMap(map);
+});
+kakao.maps.event.addListener(marker[10], 'click', function() {
+    overlay[10].setMap(map);
+});
+kakao.maps.event.addListener(marker[11], 'click', function() {
+    overlay[11].setMap(map);
+});
+kakao.maps.event.addListener(marker[12], 'click', function() {
+    overlay[12].setMap(map);
+});
+kakao.maps.event.addListener(marker[13], 'click', function() {
+    overlay[13].setMap(map);
+});
+kakao.maps.event.addListener(marker[14], 'click', function() {
+    overlay[14].setMap(map);
+});
+kakao.maps.event.addListener(marker[15], 'click', function() {
+    overlay[15].setMap(map);
+});
+kakao.maps.event.addListener(marker[16], 'click', function() {
+    overlay[16].setMap(map);
+});
+kakao.maps.event.addListener(marker[17], 'click', function() {
+    overlay[17].setMap(map);
+});
+kakao.maps.event.addListener(marker[18], 'click', function() {
+    overlay[18].setMap(map);
+});
+kakao.maps.event.addListener(marker[19], 'click', function() {
+    overlay[19].setMap(map);
+});
+kakao.maps.event.addListener(marker[20], 'click', function() {
+    overlay[20].setMap(map);
+});
+kakao.maps.event.addListener(marker[21], 'click', function() {
+    overlay[21].setMap(map);
+});
+
+
+
+
+// var marker0 = new kakao.maps.Marker({
+//     map: map, 
+//     position: positions[0].latlng
+// });
+
+// var overlay0 = new kakao.maps.CustomOverlay({
+//     content: positions[0].content,
+//     map: map,
+//     position: marker0.getPosition()
+// });
+
+// var marker1 = new kakao.maps.Marker({
+//     map: map, 
+//     position: positions[1].latlng
+// });
+
+// var overlay1 = new kakao.maps.CustomOverlay({
+//     content: positions[1].content,
+//     map: map,
+//     position: marker1.getPosition()
+// });
+
+// kakao.maps.event.addListener(marker0, 'click', function() {
+//     overlay0.setMap(map);
+// });
+
+// function closeOverlay0() {
+//     overlay0.setMap(null);     
+// }
+
+// kakao.maps.event.addListener(marker1, 'click', function() {
+//     overlay1.setMap(map);
+// });
+
+// function closeOverlay1() {
+//     overlay1.setMap(null);     
+// }
+
+
+
+
+
+</script>
+</body>
+</html>

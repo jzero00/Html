@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src = "../js/board.js"></script>
+
+
+<script>
+ 
+ reply = { };
+ currentPage = 1;
+
+ $(function(){
+	 
+	 readServer(currentPage);
+	 
+	 //페이징 이벤트 
+	 $('#boardlist').on('click','.paging', function(){
+		 currentPage =   $(this).text();
+		 //alert(currentPage);
+		 readServer(currentPage);
+	 })
+	 //이전 페이지 이벤트 
+	 $('#boardlist').on('click','.prev', function(){
+		 btxt =  parseInt($('.paging:first').text().trim()) ;
+		 currentPage = btxt - 1;
+		 readServer(currentPage);
+	 })
+	 
+	 //다음 페이지 이벤트 
+	 $('#boardlist').on('click','.next', function(){
+		 btxt =  parseInt($('.paging:last').text().trim()) ;
+		 currentPage = btxt + 1;
+		 readServer(currentPage);
+	 })
+	 
+	 //버튼 이벤트 
+	 $('#boardlist').on('click', '.action',  function(){
+		 
+		bonum =  $(this).attr('idx');
+		actionName =  $(this).attr('name');
+		 
+		if(actionName == "reply"){
+		  
+		  //답글 내용 가져오기
+		  rcont = $(this).parent().find('.area').val();
+		  rname = "korea123";
+		 
+		  //replySave(bonum, rname, rcont)
+		  reply.bonum = bonum;
+		  reply.name = rname;
+		  reply.cont = rcont;
+		  replySave(reply.bonum, this );
+		  
+		  
+		}else if(actionName == "modify"){
+			alert(bonum + "번 글 수정하기 ");
+		}else if(actionName == "delete"){
+			alert(bonum + "번 글 삭제하기 ");
+		}else if(actionName == "list"){
+			replyList(bonum, this)
+		}
+		 
+	 })
+	 
+	 
+ })
+</script>
+<style>
+  hr {
+     clear : both;
+  }
+  .rep{
+    background : pink;
+    margin : 5px;
+  }
+</style>
+</head>
+<body>
+  <div id="boardlist">
+  
+  
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
