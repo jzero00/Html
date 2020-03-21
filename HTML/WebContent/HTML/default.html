@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#btn1').on('click', function() {
+			$.getJSON('105.json', function(data) {
+				alert("aa");
+				console.log("성공");
+				console.log("성공 - ", data);
+			})
+		});
+	})
+</script>
+<style>
+</style>
+</head>
+
+<body>
+	<div class="box">
+		<h2></h2>
+		<pre>
+
+</pre>
+		<button type="button" id="btn1">실행</button>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

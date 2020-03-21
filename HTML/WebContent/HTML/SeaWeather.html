@@ -3,52 +3,52 @@
 <head>
 <meta charset="utf-8" />
 <title>Kakao 지도 시작하기</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-	//부산 해양 날씨
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	var weatherInfo = new Array();
+	var latitude = new Array(); //경도
+	var longitude = new Array(); //위도
+	$(function() {
+		alert("aa")
+		$.getJSON('105.json', function(data) {
+			$.each(data, function(i, v) {
+				weatherInfo[i] = v['recordset'];
+			})
+		})
+	})
+	console.log(weatherInfo);
 </script>
 </head>
 <body>
 	<div id="map" style="width: 1000px; height: 800px;"></div>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f90d36941474a8deb5b148b9368e916a"></script>
+
 	<script>
 		var container = document.getElementById('map');
 		var options = {
 			center : new kakao.maps.LatLng(33.450701, 126.570667),
-			level : 3
+			level : 1
 		};
-		//부산 해양 정보
-		var requestURL = 'http://210.217.120.70:8001/openWeatherNow.do?serviceKey=C16047C2-DDF5-4E02-94F9-A8566EA1C468&resultType=json&mmaf=101&mmsi=994401588,220681654,994401584,994401579,220681671,220681651,220681668,994401583,994401597,994401587,994401578,22460,22459,22454,994401594';
-		var request = new XMLHttpRequest();
-		request.open('GET', requestURL);
-		request.responseType = 'json';
-		request.send();
 
-		request.onload = function() {
-			var apiInfo = request.response;
-			var weatherInfo = JSON.parse(apiInfo);
-			showInfo(weatherInfo);
-		}
-
-		var longitude = "";
-		var latitude = "";
-		function showInfo(jsonObj) {
-			longitude = jsonObj["result"]["recordset"][0]["LONGITUDE"];
-			console.log(longitude);
-			latitude = jsonObj["result"]["recordset"][0]["LATITUDE"];
-		}
 		var map = new kakao.maps.Map(container, options);
-		
+
+		vlat = v['recordset'][0].LATITUDE;
+		console.log(vlat)
+		vlon = weatherInfo[0].longitude;
 		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(35.084833333, 129.033166667); 
+		var markerPosition = new kakao.maps.LatLng(vlat, vlon);
 
 		// 마커를 생성합니다
 		var marker = new kakao.maps.Marker({
-		    position: markerPosition
+			position : markerPosition
 		});
-
 		// 마커가 지도 위에 표시되도록 설정합니다
 		marker.setMap(map);
 	</script>
+
+	<button type="button" id="btn1">실행</button>
+	<div id="result1"></div>
 </body>
 </html>
