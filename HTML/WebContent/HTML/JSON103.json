@@ -1,0 +1,53 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"HORIZON_VISIBL": 30.7,
+					"MMAF_NM": "여수청",
+					"HUMIDITY": 23,
+					"AIR_TEMPERATURE": 14.6,
+					"LONGITUDE": 127.7597222222,
+					"AIR_PRESSURE": 1015,
+					"MMSI_NM": "광양항등표",
+					"DATETIME": "20200323113400",
+					"MMAF_CODE": "103",
+					"MMSI_CODE": "994402917",
+					"WIND_DIRECT": 282,
+					"LATITUDE": 34.8819444444,
+					"WIND_SPEED": 13
+				},
+				{
+					"MMSI_NM": "중결도등대",
+					"MMAF_NM": "여수청",
+					"HUMIDITY": 99999,
+					"DATETIME": "20200306100800",
+					"MMAF_CODE": "103",
+					"AIR_TEMPERATURE": 99999,
+					"MMSI_CODE": "994402925",
+					"LONGITUDE": 127.2403055556,
+					"WIND_DIRECT": 99999,
+					"AIR_PRESSURE": 99999,
+					"LATITUDE": 34.31375,
+					"WIND_SPEED": 99999
+				},
+				{
+					"MMSI_NM": "여초등표",
+					"MMAF_NM": "여수청",
+					"HUMIDITY": 44,
+					"DATETIME": "20200323113200",
+					"MMAF_CODE": "103",
+					"AIR_TEMPERATURE": 12.5,
+					"MMSI_CODE": "994402955",
+					"LONGITUDE": 127.6990555556,
+					"WIND_DIRECT": 13,
+					"AIR_PRESSURE": 1016,
+					"LATITUDE": 34.688,
+					"WIND_SPEED": 8
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

@@ -1,0 +1,55 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"HORIZON_VISIBL": 19.8,
+					"MMAF_NM": "동해청",
+					"HUMIDITY": 47,
+					"AIR_TEMPERATURE": 11.1,
+					"LONGITUDE": 129.345192,
+					"AIR_PRESSURE": 1014,
+					"MMSI_NM": "임원항방파제등대",
+					"DATETIME": "20200323113301",
+					"MMAF_CODE": "111",
+					"MMSI_CODE": "994403807",
+					"WIND_DIRECT": 131,
+					"LATITUDE": 37.224858,
+					"WIND_SPEED": 6
+				},
+				{
+					"HORIZON_VISIBL": 0,
+					"MMAF_NM": "동해청",
+					"HUMIDITY": 38,
+					"AIR_TEMPERATURE": 11.1,
+					"LONGITUDE": 129.144667,
+					"AIR_PRESSURE": 1014,
+					"MMSI_NM": "동해항남방파제등대",
+					"DATETIME": "20200323113224",
+					"MMAF_CODE": "111",
+					"MMSI_CODE": "994403808",
+					"WIND_DIRECT": 134,
+					"LATITUDE": 37.49665,
+					"WIND_SPEED": 5
+				},
+				{
+					"HORIZON_VISIBL": 20,
+					"MMAF_NM": "동해청",
+					"HUMIDITY": 53,
+					"AIR_TEMPERATURE": 9.7,
+					"LONGITUDE": 128.834711,
+					"AIR_PRESSURE": 1014.8,
+					"MMSI_NM": "주문진항동방파제등대",
+					"DATETIME": "20200323113555",
+					"MMAF_CODE": "111",
+					"MMSI_CODE": "994403810",
+					"WIND_DIRECT": 351,
+					"LATITUDE": 37.885889,
+					"WIND_SPEED": 7
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

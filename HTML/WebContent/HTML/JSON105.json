@@ -1,0 +1,68 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"MMAF_NM": "대산청",
+					"HUMIDITY": 36,
+					"SURFACE_CURR_SPEED": 0,
+					"AIR_TEMPERATURE": 14,
+					"LONGITUDE": 126.3433333333,
+					"AIR_PRESSURE": 1006,
+					"MMSI_NM": "대산항제2항로제3호등부표",
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "105",
+					"MMSI_CODE": "4422880",
+					"WIND_DIRECT": 231,
+					"SURFACE_CURR_DRC": 511,
+					"LATITUDE": 37.0416666667,
+					"WIND_SPEED": 1
+				},
+				{
+					"MMSI_NM": "옹도등대",
+					"MMAF_NM": "대산청",
+					"HUMIDITY": 64,
+					"DATETIME": "20200323113200",
+					"MMAF_CODE": "105",
+					"AIR_TEMPERATURE": 8.2,
+					"MMSI_CODE": "994402651",
+					"LONGITUDE": 126.0083333333,
+					"WIND_DIRECT": 48,
+					"AIR_PRESSURE": 1011,
+					"LATITUDE": 36.6466666667,
+					"WIND_SPEED": 6
+				},
+				{
+					"MMSI_NM": "소녀암등표",
+					"MMAF_NM": "대산청",
+					"HUMIDITY": 66,
+					"DATETIME": "20200323112500",
+					"MMAF_CODE": "105",
+					"AIR_TEMPERATURE": 7.6,
+					"MMSI_CODE": "994402675",
+					"LONGITUDE": 126.4733333333,
+					"WIND_DIRECT": 160,
+					"AIR_PRESSURE": 1018,
+					"LATITUDE": 36.32,
+					"WIND_SPEED": 7
+				},
+				{
+					"MMSI_NM": "신도타서등표",
+					"MMAF_NM": "대산청",
+					"HUMIDITY": 79,
+					"DATETIME": "20200323112100",
+					"MMAF_CODE": "105",
+					"AIR_TEMPERATURE": 8.1,
+					"MMSI_CODE": "994402692",
+					"LONGITUDE": 126.15,
+					"WIND_DIRECT": 320,
+					"AIR_PRESSURE": 1018,
+					"LATITUDE": 36.895,
+					"WIND_SPEED": 9
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

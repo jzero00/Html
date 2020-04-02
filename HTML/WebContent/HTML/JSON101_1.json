@@ -1,0 +1,24 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"MMSI_NM": "남항동방파제등대",
+					"MMAF_NM": "부산청",
+					"HUMIDITY": 44,
+					"DATETIME": "20200323113500",
+					"MMAF_CODE": "101",
+					"AIR_TEMPERATURE": 12,
+					"MMSI_CODE": "220681651",
+					"LONGITUDE": 129.033166667,
+					"WIND_DIRECT": 14,
+					"AIR_PRESSURE": 1015,
+					"LATITUDE": 35.084833333,
+					"WIND_SPEED": 6.22
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

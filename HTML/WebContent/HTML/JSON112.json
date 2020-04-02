@@ -1,0 +1,80 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"MMSI_NM": "김녕항서방파제등대",
+					"MMAF_NM": "제주단",
+					"HUMIDITY": 51,
+					"DATETIME": "20200323112000",
+					"MMAF_CODE": "112",
+					"AIR_TEMPERATURE": 12.5,
+					"MMSI_CODE": "994403894",
+					"LONGITUDE": 126.7457962036,
+					"WIND_DIRECT": 306,
+					"AIR_PRESSURE": 1017,
+					"LATITUDE": 33.5683288574,
+					"WIND_SPEED": 5
+				},
+				{
+					"MMSI_NM": "방서등대",
+					"MMAF_NM": "제주단",
+					"HUMIDITY": 0,
+					"DATETIME": "20200323112900",
+					"MMAF_CODE": "112",
+					"AIR_TEMPERATURE": 0,
+					"MMSI_CODE": "994403895",
+					"LONGITUDE": 126.399597168,
+					"WIND_DIRECT": 0,
+					"AIR_PRESSURE": 800,
+					"LATITUDE": 33.9215316772,
+					"WIND_SPEED": 0
+				},
+				{
+					"MMSI_NM": "개민포등대",
+					"MMAF_NM": "제주단",
+					"HUMIDITY": 25,
+					"DATETIME": "20200323113000",
+					"MMAF_CODE": "112",
+					"AIR_TEMPERATURE": 16.7,
+					"MMSI_CODE": "994403896",
+					"LONGITUDE": 126.8479003906,
+					"WIND_DIRECT": 38,
+					"AIR_PRESSURE": 1018,
+					"LATITUDE": 33.3199501038,
+					"WIND_SPEED": 6
+				},
+				{
+					"MMSI_NM": "우도등표",
+					"MMAF_NM": "제주단",
+					"HUMIDITY": 55,
+					"DATETIME": "20200323113000",
+					"MMAF_CODE": "112",
+					"AIR_TEMPERATURE": 12.7,
+					"MMSI_CODE": "994403897",
+					"LONGITUDE": 126.9721984863,
+					"WIND_DIRECT": 331,
+					"AIR_PRESSURE": 1018,
+					"LATITUDE": 33.5144500732,
+					"WIND_SPEED": 5
+				},
+				{
+					"MMSI_NM": "중뢰등표",
+					"MMAF_NM": "제주단",
+					"HUMIDITY": 0,
+					"DATETIME": "20200323112000",
+					"MMAF_CODE": "112",
+					"AIR_TEMPERATURE": 0,
+					"MMSI_CODE": "994403901",
+					"LONGITUDE": 126.3225021362,
+					"WIND_DIRECT": 0,
+					"AIR_PRESSURE": 800,
+					"LATITUDE": 33.797668457,
+					"WIND_SPEED": 0
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

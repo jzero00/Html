@@ -2,23 +2,174 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Kakao 지도 시작하기</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<title>해상 날씨 정보</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.container{
+	width : 300px;
+}
+</style>
 <script>
-	var weatherInfo = new Array();
-	var latitude = new Array(); //경도
-	var longitude = new Array(); //위도
+
+function infoaq(data){
+	var place = []; 			//장소
+	var humidity = []; 			//습도
+	var positions = [];			//위치
+	var latitude = []; 			//위도
+	var longitude = []; 		//경도
+	var datetime = []; 			//관측시간
+	var air_temperature = []; 	//기온
+	var air_pressure = []; 		//기압
+	var wind_speed = []; 		//풍속
+	var wind_direct = []; 		//풍향
+	
+	var info = [];
+	$.each(data, function(i, item) {
+		info.push(item)
+		for (var j = 0; j < item.result.recordset.length; j++) {
+			if (item.result.recordset[j].WIND_SPEED > 2000) { return; }
+			latitude.push(item.result.recordset[j].LATITUDE)
+			humidity.push(item.result.recordset[j].HUMIDITY)
+			longitude.push(item.result.recordset[j].LONGITUDE)
+			place.push(item.result.recordset[j].MMSI_NM)
+			datetime.push(item.result.recordset[j].DATETIME)
+			air_temperature.push(item.result.recordset[j].AIR_TEMPERATURE)
+			air_pressure.push(item.result.recordset[j].AIR_PRESSURE)
+			wind_speed.push(item.result.recordset[j].WIND_SPEED)
+			wind_direct.push(item.result.recordset[j].WIND_DIRECT)
+
+			console.log(item.result.recordset.length)
+			// 마커를 표시할 위치와 title 객체 배열입니다 
+			var positions = [
+				{
+					content: '<div class="container">' +
+						  '<h2>'+ place[j] + '</h2>'+       
+						'  <table class="table">  '+
+						'    <tbody>              '+
+						'      <tr>               '+
+						'        <th>관측시각</th>'+
+						'        <td>'+ datetime[j] + '</td>'+
+						'      </tr>              '+
+						'      <tr>               '+
+						'        <th>습도</th>    '+
+						'        <td>' + humidity[j] + '%</td>'+
+						'      </tr>              '+
+						'      <tr>               '+
+						'        <th>기온</th>    '+
+						'        <td>'+ air_temperature[j] + '℃</td>'+
+						'      </tr>              '+
+						'      <tr>               '+
+						'        <th>기압</th>    '+
+						'        <td>'+ air_pressure[j] + 'hPa</td>'+
+						'      </tr>              '+
+						'       <tr>              '+
+						'        <th>풍속</th>    '+
+						'        <td>' + wind_speed[j] + 'm/s</td>  '+
+						'      </tr>              '+
+						'      <tr>               '+
+						'        <th>풍향</th>    '+
+						'        <td>'+ wind_direct[j] +'</td>  '+
+						'      </tr>              '+
+						'    </tbody>             '+
+						'  </table>               '+
+						'</div>'                  
+					, 
+
+					latlng: new kakao.maps.LatLng(latitude[j],longitude[j])
+				}
+			];
+			
+			// 마커 이미지의 이미지 주소입니다
+			var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+			// 마커 이미지의 이미지 크기 입니다
+			var imageSize = new kakao.maps.Size(24, 35);
+
+			// 마커 이미지를 생성합니다    
+			var markerImage = new kakao.maps.MarkerImage(imageSrc,imageSize);
+
+			// 마커를 생성합니다
+			var marker = new kakao.maps.Marker({
+				map: map, // 마커를 표시할 지도
+		        position: positions[0].latlng, // 마커를 표시할 위치
+		        title : positions[0].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+		        image : markerImage // 마커 이미지 
+			});
+			
+			// 마커에 표시할 인포윈도우를 생성합니다 
+		    var infowindow = new kakao.maps.InfoWindow({
+		        content: positions[i].content // 인포윈도우에 표시할 내용
+		    });
+
+		    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+		    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+		    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+		    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+		    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+
+		 // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+		    function makeOverListener(map, marker, infowindow) {
+		        return function() {
+		            infowindow.open(map, marker);
+		        };
+		    }
+
+		    // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+		    function makeOutListener(infowindow) {
+		        return function() {
+		            infowindow.close();
+		        };
+		    }
+		}
+	})
+}
+
 	$(function() {
-		alert("aa")
-		$.getJSON('105.json', function(data) {
-			$.each(data, function(i, v) {
-				weatherInfo[i] = v['recordset'];
-			})
+		$.getJSON('JSON101.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON102.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON103.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON104.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON105.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON106.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON107.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON108.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON109.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON110.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON111.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON112.json', function(data) {
+			infoaq(data);
+		})
+		$.getJSON('JSON113.json', function(data) {
+			infoaq(data);
 		})
 	})
-	console.log(weatherInfo);
 </script>
+
 </head>
 <body>
 	<div id="map" style="width: 1000px; height: 800px;"></div>
@@ -26,29 +177,13 @@
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f90d36941474a8deb5b148b9368e916a"></script>
 
 	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center : new kakao.maps.LatLng(33.450701, 126.570667),
-			level : 1
-		};
+			var container = document.getElementById('map');
+			var options = {
+				center : new kakao.maps.LatLng(36.325275, 127.420188),
+				level : 11
+			};
 
-		var map = new kakao.maps.Map(container, options);
-
-		vlat = v['recordset'][0].LATITUDE;
-		console.log(vlat)
-		vlon = weatherInfo[0].longitude;
-		// 마커가 표시될 위치입니다 
-		var markerPosition = new kakao.maps.LatLng(vlat, vlon);
-
-		// 마커를 생성합니다
-		var marker = new kakao.maps.Marker({
-			position : markerPosition
-		});
-		// 마커가 지도 위에 표시되도록 설정합니다
-		marker.setMap(map);
+			var map = new kakao.maps.Map(container, options);
 	</script>
-
-	<button type="button" id="btn1">실행</button>
-	<div id="result1"></div>
 </body>
 </html>

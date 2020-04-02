@@ -1,0 +1,108 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"MMSI_NM": "(기상)우세도등대",
+					"MMAF_NM": "목포청",
+					"HUMIDITY": 60,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "107",
+					"AIR_TEMPERATURE": 10,
+					"MMSI_CODE": "440101001",
+					"LONGITUDE": 125.908,
+					"WIND_DIRECT": 270,
+					"AIR_PRESSURE": 1012.8,
+					"LATITUDE": 34.791416667,
+					"WIND_SPEED": 2.5
+				},
+				{
+					"MMSI_NM": "(기상)매물도등대",
+					"MMAF_NM": "목포청",
+					"HUMIDITY": 0,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "107",
+					"AIR_TEMPERATURE": 0,
+					"MMSI_CODE": "440101002",
+					"LONGITUDE": 125.685892,
+					"WIND_DIRECT": 336,
+					"AIR_PRESSURE": 1005.5,
+					"LATITUDE": 34.522435,
+					"WIND_SPEED": 4.1
+				},
+				{
+					"MMSI_NM": "(기상)대노록도등대",
+					"MMAF_NM": "목포청",
+					"HUMIDITY": 62,
+					"DATETIME": "20200323110000",
+					"MMAF_CODE": "107",
+					"AIR_TEMPERATURE": 11.2,
+					"MMSI_CODE": "440101003",
+					"LONGITUDE": 125.987915,
+					"WIND_DIRECT": 215,
+					"AIR_PRESSURE": 1011.9,
+					"LATITUDE": 35.103018,
+					"WIND_SPEED": 0.2
+				},
+				{
+					"MMSI_NM": "(기상)외달도등표",
+					"MMAF_NM": "목포청",
+					"HUMIDITY": 55,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "107",
+					"AIR_TEMPERATURE": 8.9,
+					"MMSI_CODE": "440101004",
+					"LONGITUDE": 126.288611111,
+					"WIND_DIRECT": 352,
+					"AIR_PRESSURE": 1018.9,
+					"LATITUDE": 34.777861111,
+					"WIND_SPEED": 5.2
+				},
+				{
+					"MMSI_NM": "(기상)가거도등대",
+					"MMAF_NM": "목포청",
+					"HUMIDITY": 57,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "107",
+					"AIR_TEMPERATURE": 12.3,
+					"MMSI_CODE": "440101005",
+					"LONGITUDE": 125.09857,
+					"WIND_DIRECT": 309,
+					"AIR_PRESSURE": 1011.8,
+					"LATITUDE": 34.095377,
+					"WIND_SPEED": 0.2
+				},
+				{
+					"MMSI_NM": "(기상)홍도등대",
+					"MMAF_NM": "목포청",
+					"HUMIDITY": 49,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "107",
+					"AIR_TEMPERATURE": 9.9,
+					"MMSI_CODE": "440101006",
+					"LONGITUDE": 125.201797,
+					"WIND_DIRECT": 253,
+					"AIR_PRESSURE": 1017.8,
+					"LATITUDE": 34.714297,
+					"WIND_SPEED": 5.2
+				},
+				{
+					"MMSI_NM": "(기상)계마항방파제등대",
+					"MMAF_NM": "목포청",
+					"HUMIDITY": 61,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "107",
+					"AIR_TEMPERATURE": 9.1,
+					"MMSI_CODE": "440101007",
+					"LONGITUDE": 126.403055556,
+					"WIND_DIRECT": 266,
+					"AIR_PRESSURE": 1019.5,
+					"LATITUDE": 35.39025,
+					"WIND_SPEED": 1.7
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

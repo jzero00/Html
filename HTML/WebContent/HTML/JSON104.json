@@ -1,0 +1,43 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"HORIZON_VISIBL": 0,
+					"MMAF_NM": "울산청",
+					"HUMIDITY": 44,
+					"AIR_TEMPERATURE": 11.9,
+					"LONGITUDE": 129.399888889,
+					"AIR_PRESSURE": 1014,
+					"MMSI_NM": "울산항동방파제서단등대",
+					"DATETIME": "20200323113500",
+					"MMAF_CODE": "104",
+					"MMSI_CODE": "1000519",
+					"WIND_DIRECT": 172,
+					"LATITUDE": 35.4665,
+					"WIND_SPEED": 5.9
+				},
+				{
+					"HORIZON_VISIBL": 99999,
+					"MMAF_NM": "울산청",
+					"HUMIDITY": 99999,
+					"SURFACE_CURR_SPEED": 99999,
+					"AIR_TEMPERATURE": 99999,
+					"LONGITUDE": 129.436472222,
+					"AIR_PRESSURE": 99999,
+					"MMSI_NM": "울산항등부표",
+					"DATETIME": "20000101000000",
+					"MMAF_CODE": "104",
+					"MMSI_CODE": "1000520",
+					"WIND_DIRECT": 99999,
+					"WATER_TEMPER": 99999,
+					"SURFACE_CURR_DRC": 99999,
+					"LATITUDE": 35.363666667,
+					"WIND_SPEED": 99999
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

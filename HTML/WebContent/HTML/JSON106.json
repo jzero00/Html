@@ -1,0 +1,38 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"MMSI_NM": "입파도등대",
+					"MMAF_NM": "평택청",
+					"HUMIDITY": 99999,
+					"DATETIME": "20200323030140",
+					"MMAF_CODE": "106",
+					"AIR_TEMPERATURE": 99999,
+					"MMSI_CODE": "1120081",
+					"LONGITUDE": 126.539675,
+					"WIND_DIRECT": 99999,
+					"AIR_PRESSURE": 99999,
+					"LATITUDE": 37.1085611111,
+					"WIND_SPEED": 99999
+				},
+				{
+					"MMSI_NM": "무당서등표",
+					"MMAF_NM": "평택청",
+					"HUMIDITY": 81,
+					"DATETIME": "20200323113416",
+					"MMAF_CODE": "106",
+					"AIR_TEMPERATURE": 7.6,
+					"MMSI_CODE": "1120127",
+					"LONGITUDE": 126.4162888889,
+					"WIND_DIRECT": 202,
+					"AIR_PRESSURE": 800,
+					"LATITUDE": 37.1561722222,
+					"WIND_SPEED": 5
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

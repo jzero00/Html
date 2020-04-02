@@ -1,0 +1,40 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"MMAF_NM": "포항청",
+					"HUMIDITY": 33,
+					"SURFACE_CURR_SPEED": 0.041,
+					"AIR_TEMPERATURE": 12.7,
+					"LONGITUDE": 129.4766666667,
+					"MMSI_NM": "영일만항분리항로등부표(랜비)",
+					"DATETIME": "20200323113500",
+					"MMAF_CODE": "110",
+					"MMSI_CODE": "994403579",
+					"WIND_DIRECT": 351,
+					"WATER_TEMPER": 13,
+					"SURFACE_CURR_DRC": 171,
+					"LATITUDE": 36.0782777778,
+					"WIND_SPEED": 1
+				},
+				{
+					"MMSI_NM": "도동등대",
+					"MMAF_NM": "포항청",
+					"HUMIDITY": 64,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "110",
+					"AIR_TEMPERATURE": 9.8,
+					"MMSI_CODE": "994403582",
+					"LONGITUDE": 130.9194166667,
+					"WIND_DIRECT": 278,
+					"AIR_PRESSURE": 1003,
+					"LATITUDE": 37.487,
+					"WIND_SPEED": 3.6
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

@@ -1,0 +1,111 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"MMSI_NM": "녹도등대(기)",
+					"MMAF_NM": "진도소",
+					"HUMIDITY": 60,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "113",
+					"AIR_TEMPERATURE": 12,
+					"MMSI_CODE": "440103001",
+					"LONGITUDE": 126.3205030556,
+					"WIND_DIRECT": 311,
+					"AIR_PRESSURE": 1020.5,
+					"LATITUDE": 34.5593969444,
+					"WIND_SPEED": 1.4
+				},
+				{
+					"MMSI_NM": "황제도등대(기)",
+					"MMAF_NM": "진도소",
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "113",
+					"AIR_TEMPERATURE": 12.2,
+					"MMSI_CODE": "440103002",
+					"LONGITUDE": 127.08,
+					"WIND_DIRECT": 302,
+					"WATER_TEMPER": 0,
+					"AIR_PRESSURE": 1010.7,
+					"LATITUDE": 34.1933,
+					"WIND_SPEED": 4.2
+				},
+				{
+					"MMSI_NM": "여서도등대(기)",
+					"MMAF_NM": "진도소",
+					"HUMIDITY": 46,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "113",
+					"AIR_TEMPERATURE": 11.9,
+					"MMSI_CODE": "440103003",
+					"LONGITUDE": 126.918294,
+					"WIND_DIRECT": 300,
+					"AIR_PRESSURE": 1017.8,
+					"LATITUDE": 33.9877,
+					"WIND_SPEED": 2.9
+				},
+				{
+					"MMSI_NM": "횡간도등대(기)",
+					"MMAF_NM": "진도소",
+					"HUMIDITY": 50,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "113",
+					"AIR_TEMPERATURE": 11.9,
+					"MMSI_CODE": "440103004",
+					"LONGITUDE": 126.6128,
+					"WIND_DIRECT": 289,
+					"AIR_PRESSURE": 1022.8,
+					"LATITUDE": 34.250497,
+					"WIND_SPEED": 5.6
+				},
+				{
+					"MMSI_NM": "하조도등대(기)",
+					"MMAF_NM": "진도소",
+					"HUMIDITY": 59,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "113",
+					"AIR_TEMPERATURE": 10,
+					"MMSI_CODE": "440103005",
+					"LONGITUDE": 126.087797,
+					"WIND_DIRECT": 5,
+					"AIR_PRESSURE": 1019.2,
+					"LATITUDE": 34.3111,
+					"WIND_SPEED": 7.6
+				},
+				{
+					"MMAF_NM": "진도소",
+					"HUMIDITY": 51,
+					"SURFACE_CURR_SPEED": 0.14,
+					"AIR_TEMPERATURE": 11.8,
+					"LONGITUDE": 126.808294,
+					"AIR_PRESSURE": 1019.6,
+					"MMSI_NM": "완도항 유도등부표(기)",
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "113",
+					"MMSI_CODE": "440103006",
+					"WIND_DIRECT": 13,
+					"WATER_TEMPER": 11.6,
+					"SURFACE_CURR_DRC": 70,
+					"LATITUDE": 34.2535,
+					"WIND_SPEED": 2.2
+				},
+				{
+					"MMSI_NM": "어룡도등대(기)",
+					"MMAF_NM": "진도소",
+					"HUMIDITY": 53,
+					"DATETIME": "20200323113600",
+					"MMAF_CODE": "113",
+					"AIR_TEMPERATURE": 12.5,
+					"MMSI_CODE": "440103007",
+					"LONGITUDE": 126.473197,
+					"WIND_DIRECT": 7,
+					"AIR_PRESSURE": 1021.4,
+					"LATITUDE": 34.2868,
+					"WIND_SPEED": 2.4
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

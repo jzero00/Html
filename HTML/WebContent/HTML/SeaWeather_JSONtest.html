@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Kakao 지도 시작하기</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+var place = new Array(); //장소
+var positions = new Array();	//위치
+var latitude = new Array(); //위도
+var longitude = new Array(); //경도
+$(function() {
+	alert("실행")
+	$.getJSON('JSON102.json', function(data) {
+		$.each(data, function(i, item) {
+// 			for (var j = 0; j < item.result.recordset.length; j++) {
+				place.push(item)
+// 				longitude.push(item.result.recordset[j].LONGITUDE)
+// 				place.push(item.result.recordset[j].MMSI_NM)
+// 			}
+		})
+	})
+})
+console.log(item);
+var weatherInfo = new Array();
+weatherInfo.push(place);
+weatherInfo.push(latitude,longitude);
+for(i = 0; i < weatherInfo.length; i++){
+positions.push(latitude[i],longitude[i]);		
+}
+console.log(weatherInfo);
+console.log(positions);
+
+console.log(longitude)
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"HORIZON_VISIBL": 99999,
+					"MMAF_NM": "군산청",
+					"HUMIDITY": 99999,
+					"AIR_TEMPERATURE": 99999,
+					"LONGITUDE": 126.52747,
+					"AIR_PRESSURE": 99999,
+					"MMSI_NM": "비응항서방파제등대",
+					"DATETIME": "20000101000000",
+					"MMAF_CODE": "108",
+					"MMSI_CODE": "4406103",
+					"WIND_DIRECT": 99999,
+					"LATITUDE": 35.9335269444,
+					"WIND_SPEED": 99999
+				},
+				{
+					"HORIZON_VISIBL": 19.8,
+					"MMAF_NM": "군산청",
+					"HUMIDITY": 77,
+					"AIR_TEMPERATURE": 7.6,
+					"LONGITUDE": 126.43597,
+					"AIR_PRESSURE": 997,
+					"MMSI_NM": "군산연도등대",
+					"DATETIME": "20200323113000",
+					"MMAF_CODE": "108",
+					"MMSI_CODE": "994403652",
+					"WIND_DIRECT": 289,
+					"LATITUDE": 36.08113,
+					"WIND_SPEED": 3
+				},
+				{
+					"HORIZON_VISIBL": 0,
+					"MMAF_NM": "군산청",
+					"HUMIDITY": 56,
+					"AIR_TEMPERATURE": 8.4,
+					"LONGITUDE": 126.10705,
+					"AIR_PRESSURE": 999,
+					"MMSI_NM": "상왕등도등대",
+					"DATETIME": "20200323113000",
+					"MMAF_CODE": "108",
+					"MMSI_CODE": "994403654",
+					"WIND_DIRECT": 270,
+					"LATITUDE": 35.6621111111,
+					"WIND_SPEED": 5
+				},
+				{
+					"HORIZON_VISIBL": 0,
+					"MMAF_NM": "군산청",
+					"HUMIDITY": 57,
+					"AIR_TEMPERATURE": 9.7,
+					"LONGITUDE": 126.3632778,
+					"AIR_PRESSURE": 1018,
+					"MMSI_NM": "흑서등표",
+					"DATETIME": "20200323113000",
+					"MMAF_CODE": "108",
+					"MMSI_CODE": "994403658",
+					"WIND_DIRECT": 280,
+					"LATITUDE": 35.61905556,
+					"WIND_SPEED": 4
+				},
+				{
+					"HORIZON_VISIBL": 29.8,
+					"MMAF_NM": "군산청",
+					"HUMIDITY": 69,
+					"AIR_TEMPERATURE": 8.7,
+					"LONGITUDE": 126.37216,
+					"AIR_PRESSURE": 1299,
+					"MMSI_NM": "군산흑도등표",
+					"DATETIME": "20200323113000",
+					"MMAF_CODE": "108",
+					"MMSI_CODE": "994403661",
+					"WIND_DIRECT": 216,
+					"LATITUDE": 35.82619,
+					"WIND_SPEED": 5
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]

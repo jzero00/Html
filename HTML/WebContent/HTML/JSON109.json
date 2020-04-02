@@ -1,0 +1,100 @@
+[
+	{
+		"result": {
+			"recordset": [
+				{
+					"HORIZON_VISIBL": 20,
+					"MMAF_NM": "마산청",
+					"HUMIDITY": 20,
+					"AIR_TEMPERATURE": 12.5,
+					"LONGITUDE": 128.6101944444,
+					"AIR_PRESSURE": 1017,
+					"MMSI_NM": "흑암등표",
+					"DATETIME": "20200323112800",
+					"MMAF_CODE": "109",
+					"MMSI_CODE": "994401602",
+					"WIND_DIRECT": 221,
+					"WATER_TEMPER": 38.4,
+					"WAVE_DRC": 0,
+					"SALINITY": 38.4,
+					"WAVE_HEIGTH": 0,
+					"LATITUDE": 35.0402222222,
+					"WIND_SPEED": 2.6
+				},
+				{
+					"HORIZON_VISIBL": 0,
+					"MMAF_NM": "마산청",
+					"HUMIDITY": 33,
+					"SURFACE_CURR_SPEED": 0,
+					"AIR_TEMPERATURE": 13.2,
+					"LONGITUDE": 128.4736666667,
+					"AIR_PRESSURE": 1017,
+					"MMSI_NM": "견내량등표",
+					"DATETIME": "20200323113300",
+					"MMAF_CODE": "109",
+					"MMSI_CODE": "994401605",
+					"WATER_TEMPER": 12.4,
+					"SALINITY": 15.8,
+					"SURFACE_CURR_DRC": 2,
+					"LATITUDE": 34.885
+				},
+				{
+					"HORIZON_VISIBL": 99999,
+					"MMAF_NM": "마산청",
+					"HUMIDITY": 99999,
+					"AIR_TEMPERATURE": 99999,
+					"LONGITUDE": 128.4763333333,
+					"AIR_PRESSURE": 99999,
+					"MMSI_NM": "고암등대",
+					"DATETIME": "20200310235400",
+					"MMAF_CODE": "109",
+					"MMSI_CODE": "994401606",
+					"WIND_DIRECT": 99999,
+					"WATER_TEMPER": 99999,
+					"SALINITY": 99999,
+					"LATITUDE": 34.498,
+					"WIND_SPEED": 99999
+				},
+				{
+					"MMAF_NM": "마산청",
+					"HUMIDITY": 39,
+					"AIR_TEMPERATURE": 11.6,
+					"LONGITUDE": 128.0633333333,
+					"AIR_PRESSURE": 1016,
+					"MMSI_NM": "고도등표",
+					"DATETIME": "20200323113400",
+					"MMAF_CODE": "109",
+					"MMSI_CODE": "994401623",
+					"WIND_DIRECT": 119,
+					"WATER_TEMPER": 38.4,
+					"SALINITY": 38.4,
+					"LATITUDE": 34.68,
+					"WIND_SPEED": 4.1
+				},
+				{
+					"HORIZON_VISIBL": 99999,
+					"MMAF_NM": "마산청",
+					"HUMIDITY": 99999,
+					"SURFACE_CURR_SPEED": 99999,
+					"AIR_TEMPERATURE": 99999,
+					"LONGITUDE": 128.6101944444,
+					"AIR_PRESSURE": 99999,
+					"MMSI_NM": "흑암부표(파)",
+					"DATETIME": "20200320024531",
+					"MMAF_CODE": "109",
+					"MMSI_CODE": "994411602",
+					"WIND_DIRECT": 99999,
+					"WATER_TEMPER": 99999,
+					"WAVE_DRC": 99999,
+					"SALINITY": 99999,
+					"SURFACE_CURR_DRC": 99999,
+					"WAVE_HEIGTH": 99999,
+					"LATITUDE": 35.0402222222,
+					"WIND_SPEED": 99999
+				}
+			],
+			"message": "",
+			"status": "OK"
+		}
+	}
+]
